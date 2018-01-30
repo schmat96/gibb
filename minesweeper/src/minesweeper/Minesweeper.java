@@ -1,21 +1,24 @@
 package minesweeper;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Minesweeper {
 		private Playground pg;
+		private Boolean running = true;
 	
 	public Minesweeper() {
 		pg = new Playground(10, 10);
 		pg.displayPlayGround();
-		this.getInput();
+		while (running) {
+			this.getInput();
+			pg.displayPlayGround();
+		}
 	}
 
 	private void getInput() {
 		 BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-	        System.out.println("Enter (a) Color(s)");
+	        System.out.println("Enter Coord");
 	        String s = "";
 	        
 	        try {
@@ -56,7 +59,12 @@ public class Minesweeper {
 				
 			}
 			
-			pg.inputOn(coordX, coordY);
+			if (pg.inputOn(coordX, coordY)==true) {
+				System.out.println("verloren");
+				running = false;
+			} else {
+				
+			}
 			
 		}
 		
