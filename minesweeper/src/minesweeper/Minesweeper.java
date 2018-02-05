@@ -7,9 +7,11 @@ public class Minesweeper {
 		private Playground pg;
 		private Boolean running = true;
 		private final int SIZE = 20;
+		private final int BOMBS = 10;
+		private final int SCREENSIZE = 1000;
 	
 	public Minesweeper() {
-		pg = new Playground(SIZE, SIZE, this);
+		pg = new Playground(SIZE, SIZE, this, BOMBS, SCREENSIZE);
 		pg.displayPlayGround();
 		while (running) {
 			this.getInput();
@@ -42,12 +44,12 @@ public class Minesweeper {
 	        		help();
 	        		break;
 	        	default:
-	        		interpretInput(s);
+	        		interpretInput(s, 0);
 	        }
 		
 	}
 
-	public void interpretInput(String s) {
+	public void interpretInput(String s, int taste) {
 		if (s.split(" ").length==2) {
 			String a = s.split(" ")[0];
 			String b = s.split(" ")[1];
@@ -59,15 +61,26 @@ public class Minesweeper {
 			} catch (NumberFormatException e) {
 				
 			}
-			Boolean hue = pg.inputOn(coordX, coordY);
-			if (hue==true) {
-				System.out.println("verloren");
-				pg = new Playground(SIZE, SIZE, this);
-				pg.displayVerloren();
-			} else {
+			if (taste == 0) {
+				Boolean hue = pg.inputOn(coordX, coordY);
+				if (hue==true) {
+					System.out.println("verloren");
+					pg.close();
+					pg = new Playground(SIZE, SIZE, this, BOMBS, SCREENSIZE);
+					pg.displayVerloren();
+				} else {
+					if (pg.checkToWin()) {
+						System.out.println("gewonnen");
+						pg.displayGewonnen();
+					}
+				}
 				
+			} else {
+				pg.setFlag(coordX, coordY);
 			}
+			
 			pg.displayPlayGround();
+			
 		}
 		
 	}

@@ -21,8 +21,13 @@ public class mouseListener implements MouseListener {
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		ms.interpretInput(x + " " + y);
-		System.out.println(x + " " + y);
+		if (e.getModifiers() == MouseEvent.BUTTON3_MASK) {
+			ms.interpretInput(x + " " + y, 1);
+		} else {
+			ms.interpretInput(x + " " + y, 0);
+			System.out.println(x + " " + y);
+		}
+		
 		
 	}
 
