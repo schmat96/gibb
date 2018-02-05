@@ -7,8 +7,11 @@ public class Playground {
 	private int sizeY;
 	private int[][] playground;
 	private boolean[][] bombs;
+	private PlaygroundScreen screen;
 	
-	public Playground(int sizeX, int sizeY) {
+	public Playground(int sizeX, int sizeY, Minesweeper ms) {
+		screen = new PlaygroundScreen(sizeX, sizeY, ms);
+		screen.startGui();
 		this.sizeX = sizeX;
 		this.sizeY = sizeY;
 		this.playground = new int[sizeX+1][sizeY+1];
@@ -21,7 +24,7 @@ public class Playground {
 		for (int i=0;i<this.sizeX;i++) {
 			for (int j=0;j<this.sizeY;j++) {
 				playground[i][j] = 0;
-				if (rnd.nextInt(5)==2) {
+				if (rnd.nextInt(10)==2) {
 					bombs[i][j] = true;
 				} else {
 					bombs[i][j] = false;
@@ -34,24 +37,24 @@ public class Playground {
 	public void displayPlayGround() {
 		for (int i=0;i<this.sizeX;i++) {
 			for (int j=0;j<this.sizeY;j++) {
-				String s = Integer.toString(playground[i][j]);
-				if (s.length()==2) {
-					System.out.print(playground[i][j]+ "|");
-				} else {
-					System.out.print("+" + playground[i][j]+ "|");
-				}
+					if (screen!=null) {
+						if (bombs[i][j] == true) {
+							screen.setLabel(i,j,playground[i][j]+"");
+						} else {
+							screen.setLabel(i,j,playground[i][j]+"");
+						}
+						
+					}
 				
 			}
-			System.out.println();
 		}
 	}
 
 	public boolean inputOn(int coordX, int coordY) {
-		if (bombs[coordX][coordX]==true) {
+		if (bombs[coordX][coordY]==true) {
 			return true;
 		}
 		aufdecken(coordX, coordY);
-		
 		return false;
 		
 	}
@@ -90,6 +93,11 @@ public class Playground {
 		}
 		
 		
+		
+	}
+
+	public void displayVerloren() {
+	
 		
 	}
 }

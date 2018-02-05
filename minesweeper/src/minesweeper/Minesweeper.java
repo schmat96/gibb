@@ -6,9 +6,10 @@ import java.io.InputStreamReader;
 public class Minesweeper {
 		private Playground pg;
 		private Boolean running = true;
+		private final int SIZE = 20;
 	
 	public Minesweeper() {
-		pg = new Playground(10, 10);
+		pg = new Playground(SIZE, SIZE, this);
 		pg.displayPlayGround();
 		while (running) {
 			this.getInput();
@@ -46,7 +47,7 @@ public class Minesweeper {
 		
 	}
 
-	private void interpretInput(String s) {
+	public void interpretInput(String s) {
 		if (s.split(" ").length==2) {
 			String a = s.split(" ")[0];
 			String b = s.split(" ")[1];
@@ -58,14 +59,15 @@ public class Minesweeper {
 			} catch (NumberFormatException e) {
 				
 			}
-			
-			if (pg.inputOn(coordX, coordY)==true) {
+			Boolean hue = pg.inputOn(coordX, coordY);
+			if (hue==true) {
 				System.out.println("verloren");
-				running = false;
+				pg = new Playground(SIZE, SIZE, this);
+				pg.displayVerloren();
 			} else {
 				
 			}
-			
+			pg.displayPlayGround();
 		}
 		
 	}
