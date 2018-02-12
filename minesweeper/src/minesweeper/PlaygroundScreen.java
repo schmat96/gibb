@@ -51,7 +51,7 @@ public class PlaygroundScreen {
             
             for (int i = 0; i<SIZEX;i++) {
             	for (int j = 0; j<SIZEY;j++) {
-            		JLabel labelBombs = new JLabel("0", SwingConstants.CENTER);
+            		JLabel labelBombs = new JLabel("#", SwingConstants.CENTER);
             		int labelSizeX = Math.round(SCREENSIZE/SIZEX)-5;
             		int labelSizeY = Math.round(SCREENSIZE/SIZEY)-5;
             		int schriftGroesse = 0;
@@ -65,7 +65,7 @@ public class PlaygroundScreen {
                     labelBombs.setOpaque(true);
             		labelBombs.setPreferredSize(new Dimension(labelSizeX, labelSizeY));
             		labelBombs.validate();
-            		labelBombs.setBackground(new Color(30, 10, 5));
+            		labelBombs.setBackground(new Color(100, 100, 100));
             		labelBombs.setForeground(new Color(255,255,200));
             		Border blackline = BorderFactory.createLineBorder(Color.black);
             		labelBombs.setBorder(blackline);
@@ -102,11 +102,14 @@ public class PlaygroundScreen {
 				case "bomb":
 					labels[i][j].setText("B");
 					labels[i][j].setBackground(new Color(0, 200, 0));
-					
 					break;
-				case "-1":
+				case "0":
 					labels[i][j].setText("#");
 					labels[i][j].setBackground(new Color(100, 100, 100));
+					break;
+				case "-1":
+					labels[i][j].setText("0");
+					labels[i][j].setBackground(new Color(30, 10, 5));
 					break;
 				default:
 					labels[i][j].setBackground(new Color((30*(Integer.parseInt(k)+1))%255, (10*(Integer.parseInt(k)+1))%255, (5*(Integer.parseInt(k)+1))%255));
