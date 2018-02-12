@@ -10,13 +10,16 @@ public class Playground {
 	private boolean[][] bombs;
 	private PlaygroundScreen screen;
 	private final int BOMBS;
+	private final boolean CONSOLEOUTPUT;
+	private boolean cheat = false;
 	
-	public Playground(int sizeX, int sizeY, Minesweeper ms, int bombs, int screensize) {
-		screen = new PlaygroundScreen(sizeX, sizeY, ms, screensize);
+	public Playground(int sizeX, int sizeY, Minesweeper ms) {
+		screen = new PlaygroundScreen(sizeX, sizeY, ms);
 		screen.startGui();
 		this.sizeX = sizeX;
+		this.CONSOLEOUTPUT = ms.isCONSOLEOUTPUT();
 		this.sizeY = sizeY;
-		this.BOMBS = bombs;
+		this.BOMBS = ms.getBOMBS();
 		this.playground = new int[sizeX+1][sizeY+1];
 		this.bombs = new boolean[sizeX+1][sizeY+1];
 		this.markierungen = new boolean[sizeX+1][sizeY+1];
@@ -42,24 +45,37 @@ public class Playground {
 		for (int i=0;i<this.sizeX;i++) {
 			for (int j=0;j<this.sizeY;j++) {
 					if (screen!=null) {
-						if (bombs[i][j] == true) {
+						
 							if (markierungen[i][j]) {
 								screen.setLabel(i,j,"flag");
+								if (CONSOLEOUTPUT) {
+									System.out.print("~F"+"|");
+								}
+								
 							} else {
 								screen.setLabel(i,j,playground[i][j]+"");
+								if (CONSOLEOUTPUT) {
+									if (playground[i][j]>=0) {
+										System.out.print("+"+playground[i][j]+"|");
+									} else {
+										System.out.print(playground[i][j]+"|");
+									}
+								}
+								
+								
 							}
 							
-						} else {
-							if (markierungen[i][j]) {
-								screen.setLabel(i,j,"flag");
-							} else {
-								screen.setLabel(i,j,playground[i][j]+"");
+							if (bombs[i][j] && cheat) {
+								screen.setLabel(i,j,"bomb");
 							}
-						}
 						
 					}
 				
 			}
+			if (CONSOLEOUTPUT) {
+				System.out.println("");
+			}
+			
 		}
 	}
 
@@ -132,7 +148,6 @@ public class Playground {
 
 	public void displayGewonnen() {
 		screen.displayGewonnen();
-		
 	}
 
 	public void setFlag(int coordX, int coordY) {
@@ -141,7 +156,14 @@ public class Playground {
 		} else {
 			markierungen[coordX][coordY] = true;
 		}
-		
-		
+
+	}
+	
+	public void setCheat(Boolean wert) {
+		this.cheat = wert;
+	}
+	
+	public boolean getCheat() {
+		return this.cheat;
 	}
 }

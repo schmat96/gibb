@@ -20,13 +20,17 @@ public class PlaygroundScreen {
 	private JPanel panel;
 	
 	private final int SCREENSIZE;
+	private final int SIZEX;
+	private final int SIZEY;
 	
 	private Minesweeper ms;
 	
-	public PlaygroundScreen(int sizeX, int sizeY, Minesweeper ms, int screensize) {
+	public PlaygroundScreen(int sizeX, int sizeY, Minesweeper ms) {
 		labels = new JLabel[sizeX+1][sizeY+1];
+		this.SIZEX = sizeX;
+		this.SIZEY = sizeY;
 		this.ms = ms;
-		this.SCREENSIZE = screensize;
+		this.SCREENSIZE = ms.getSCREENSIZE();
 	}
 	
 	Runnable guiCreator = new Runnable() {
@@ -38,22 +42,29 @@ public class PlaygroundScreen {
             
             panel = new JPanel();
             panel.setBackground(new Color(240, 240, 240));
+            panel.setPreferredSize(new Dimension(SCREENSIZE, SCREENSIZE));
             panel.setLayout(new GridBagLayout());
-            panel.setPreferredSize(new Dimension(400,400));
             GridBagConstraints c = new GridBagConstraints();
 
            
 
             
-            for (int i = 0; i<labels.length-1;i++) {
-            	for (int j = 0; j<labels.length-1;j++) {
+            for (int i = 0; i<SIZEX;i++) {
+            	for (int j = 0; j<SIZEY;j++) {
             		JLabel labelBombs = new JLabel("0", SwingConstants.CENTER);
-            		int labelSize = Math.round(SCREENSIZE/labels.length)-5;
-            		
+            		int labelSizeX = Math.round(SCREENSIZE/SIZEX)-5;
+            		int labelSizeY = Math.round(SCREENSIZE/SIZEY)-5;
+            		int schriftGroesse = 0;
+            		if (labelSizeX>labelSizeY) {
+            			schriftGroesse = labelSizeY;
+            		} else {
+            			schriftGroesse = labelSizeX;
+            		}
                     Font labelFont = labelBombs.getFont();
-                    labelBombs.setFont(new Font(labelFont.getName(), Font.PLAIN, labelSize-10));
+                    labelBombs.setFont(new Font(labelFont.getName(), Font.PLAIN, schriftGroesse-5));
                     labelBombs.setOpaque(true);
-            		labelBombs.setPreferredSize(new Dimension(labelSize, labelSize));
+            		labelBombs.setPreferredSize(new Dimension(labelSizeX, labelSizeY));
+            		labelBombs.validate();
             		labelBombs.setBackground(new Color(30, 10, 5));
             		labelBombs.setForeground(new Color(255,255,200));
             		Border blackline = BorderFactory.createLineBorder(Color.black);
@@ -86,6 +97,11 @@ public class PlaygroundScreen {
 				case "flag":
 					labels[i][j].setText("@");
 					labels[i][j].setBackground(new Color(200, 200, 200));
+					
+					break;
+				case "bomb":
+					labels[i][j].setText("B");
+					labels[i][j].setBackground(new Color(0, 200, 0));
 					
 					break;
 				case "-1":
