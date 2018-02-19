@@ -2,6 +2,9 @@ package minesweeper;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Iterator;
+
 
 /**
  * 
@@ -15,9 +18,10 @@ public class Minesweeper {
 		private Boolean running = true;
 		private final int SIZEX = 20;
 		private final int SIZEY = 20;
-		private final int BOMBS = 20;
+		private final int BOMBS = 100;
 		private final int SCREENSIZE = 800;
 		private final boolean CONSOLEOUTPUT = true;
+		private boolean gewonnen = false;
 	
 	
 
@@ -29,7 +33,10 @@ public class Minesweeper {
 		pg.displayPlayGround();
 		while (running) {
 			this.playCycle();
-			pg.displayPlayGround();
+			if (gewonnen==false) {
+				pg.displayPlayGround();
+			}
+			
 		}
 	}
 
@@ -47,28 +54,32 @@ public class Minesweeper {
 				
 				e.printStackTrace();
 			}
-	        switch (s) {
-	        	case "help":
-	        		help();
-	        		break;
-	        	case "?":
-	        		help();
-	        		break;
-	        	case "/?":
-	        		help();
-	        		break;
-	        	case "cheat":
-	        		if (pg.getCheat()) {
-	        			pg.setCheat(false);
-	        		} else {
-	        			pg.setCheat(true);
-	        		}
-	        		
-	        		break;
-	        	default:
-	        		interpretInput(s);
-	        }
+	        interpretInput(s);
 		
+	}
+
+	private void interpretInput(String s) {
+		switch (s) {
+			case "help":
+				help();
+				break;
+			case "?":
+				help();
+				break;
+			case "/?":
+				help();
+				break;
+			case "cheat":
+				if (pg.getCheat()) {
+					pg.setCheat(false);
+				} else {
+					pg.setCheat(true);
+				}
+				
+				break;
+			default:
+				interpretInputInteger(s);
+		}
 	}
 	
 	/**
@@ -76,7 +87,7 @@ public class Minesweeper {
 	 * TODO make left and right click possible with console inputs.
 	 * @param s - the string to be interpreted
 	 */
-	public void interpretInput(String s) {
+	public void interpretInputInteger(String s) {
 		if (s.split(" ").length==2) {
 			String a = s.split(" ")[0];
 			String b = s.split(" ")[1];
@@ -102,23 +113,42 @@ public class Minesweeper {
 	 * @param coordY the y-coord for the input
 	 */
 	public void leftClickOn(int coordX, int coordY) {
-		if (CONSOLEOUTPUT) {
-			System.out.println("Left click on "+coordX+":"+coordY);
-		}
-		
-		Boolean hue = pg.inputOn(coordX, coordY);
-		if (hue==true) {
-			System.out.println("verloren");
-			pg.close();
-			pg = new Playground(SIZEX, SIZEY, this);
-			pg.displayVerloren();
+		if (gewonnen) {
+			pg.resetPlayground();
+			pg.getScreen().resetFontSize();
+			gewonnen = false;
+			pg.displayPlayGround();
 		} else {
-			if (pg.checkToWin()) {
-				System.out.println("gewonnen");
-				pg.displayGewonnen();
+			if (CONSOLEOUTPUT) {
+				System.out.println("Left click on "+coordX+":"+coordY);
+			}
+			
+			Boolean bombBoolean = pg.inputOn(coordX, coordY);
+			if (bombBoolean==true) {
+				verloren();
+			} else {
+				if (pg.checkToWin()) {
+					gewonnen();
+				}
+			}
+			if (gewonnen==false) {
+				pg.displayPlayGround();
 			}
 		}
-		pg.displayPlayGround();
+		
+		
+	}
+
+	private void gewonnen() {
+		gewonnen = true;
+		System.out.println("gewonnen");
+		pg.displayGewonnen();
+	}
+
+	private void verloren() {
+		System.out.println("verloren");
+		gewonnen = true;
+		pg.displayVerloren();
 	}
 	
 	/**
@@ -159,7 +189,38 @@ public class Minesweeper {
 	}
 
 	public static void main(String[] args) {
+		
+		testInstanzVariabeln();
 		new Minesweeper();
+	}
+
+	private static void testInstanzVariabeln() {
+		ArrayList<InstanzVariablenTester> InstanzVariabelnTesterArray = new ArrayList<InstanzVariablenTester>();
+		InstanzVariabelnTesterArray.add(new InstanzVariablenTester("Erste Klasse"));
+		printAllArray(InstanzVariabelnTesterArray);
+		System.out.println("-----------------------------------------------");
+		System.out.println();
+		InstanzVariabelnTesterArray.add(new InstanzVariablenTester("Zweite Klasse"));
+		printAllArray(InstanzVariabelnTesterArray);
+		
+		System.out.println("-----------------------------------------------");
+		System.out.println();
+		InstanzVariabelnTesterArray.add(new InstanzVariablenTester("Dritte Klasse"));
+		printAllArray(InstanzVariabelnTesterArray);
+	}
+
+	private static void printAllArray(ArrayList<InstanzVariablenTester> InstanzVariabelnTesterArray) {
+		Iterator<InstanzVariablenTester> it = InstanzVariabelnTesterArray.iterator();
+		while (it.hasNext()) {
+			it.next().printClass();
+		}
+	}
+
+	public void newGame() {
+		
+		pg.resetPlayground();
+		pg.displayPlayGround();
+		
 	}
 
 }

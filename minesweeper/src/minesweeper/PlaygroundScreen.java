@@ -5,8 +5,7 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.Label;
-import java.awt.Panel;
+import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.swing.*;
@@ -18,10 +17,14 @@ public class PlaygroundScreen {
 	private JLabel[][] labels;
 	private JFrame fenster;
 	private JPanel panel;
+	private JLabel jLabelGewonnen = null;
 	
 	private final int SCREENSIZE;
 	private final int SIZEX;
 	private final int SIZEY;
+	
+	private int schriftGroesse;
+	private Font labelFont;
 	
 	private Minesweeper ms;
 	
@@ -46,45 +49,52 @@ public class PlaygroundScreen {
             panel.setLayout(new GridBagLayout());
             GridBagConstraints c = new GridBagConstraints();
 
-           
-
+            int labelSizeX = Math.round(SCREENSIZE/SIZEX)-5;
+    		int labelSizeY = Math.round(SCREENSIZE/SIZEY)-5;
+    		schriftGroesse = getSchriftgroesse(labelSizeX, labelSizeY);
+    		
             
             for (int i = 0; i<SIZEX;i++) {
             	for (int j = 0; j<SIZEY;j++) {
-            		JLabel labelBombs = new JLabel("#", SwingConstants.CENTER);
-            		int labelSizeX = Math.round(SCREENSIZE/SIZEX)-5;
-            		int labelSizeY = Math.round(SCREENSIZE/SIZEY)-5;
-            		int schriftGroesse = 0;
-            		if (labelSizeX>labelSizeY) {
-            			schriftGroesse = labelSizeY;
-            		} else {
-            			schriftGroesse = labelSizeX;
-            		}
-                    Font labelFont = labelBombs.getFont();
-                    labelBombs.setFont(new Font(labelFont.getName(), Font.PLAIN, schriftGroesse-5));
-                    labelBombs.setOpaque(true);
-            		labelBombs.setPreferredSize(new Dimension(labelSizeX, labelSizeY));
-            		labelBombs.validate();
-            		labelBombs.setBackground(new Color(100, 100, 100));
-            		labelBombs.setForeground(new Color(255,255,200));
-            		Border blackline = BorderFactory.createLineBorder(Color.black);
-            		labelBombs.setBorder(blackline);
-            		labelBombs.addMouseListener(new mouseListener(labelBombs, i, j, ms));
-            		labels[i][j] = labelBombs;
-            		c.gridx = i;
-            		c.gridy = j;
-            		panel.add(labels[i][j], c);
+            		newLabelBombs(c, labelSizeX, labelSizeY, schriftGroesse, i, j);
             	}
             }
             
             
     		fenster.add(panel);
-    		
     		panel.validate();
-
             fenster.setSize(SCREENSIZE, SCREENSIZE);
             fenster.setVisible(true);
         }
+
+		private int getSchriftgroesse(int labelSizeX, int labelSizeY) {
+			int schriftGroesse;
+			if (labelSizeX>labelSizeY) {
+    			schriftGroesse = labelSizeY;
+    		} else {
+    			schriftGroesse = labelSizeX;
+    		}
+			return schriftGroesse;
+		}
+
+		private void newLabelBombs(GridBagConstraints c, int labelSizeX, int labelSizeY, int schriftGroesse, int i,
+				int j) {
+			JLabel labelBombs = new JLabel("#", SwingConstants.CENTER);
+			labelFont = labelBombs.getFont();
+			labelBombs.setFont(new Font(labelFont.getName(), Font.PLAIN, schriftGroesse-5));
+			labelBombs.setOpaque(true);
+			labelBombs.setPreferredSize(new Dimension(labelSizeX, labelSizeY));
+			labelBombs.validate();
+			labelBombs.setBackground(new Color(100, 100, 100));
+			labelBombs.setForeground(new Color(255,255,200));
+			Border blackline = BorderFactory.createLineBorder(Color.black);
+			labelBombs.setBorder(blackline);
+			labelBombs.addMouseListener(new mouseListener(labelBombs, i, j, ms));
+			labels[i][j] = labelBombs;
+			c.gridx = i;
+			c.gridy = j;
+			panel.add(labels[i][j], c);
+		}
     };
 
 	public void startGui() {
@@ -120,6 +130,22 @@ public class PlaygroundScreen {
 		
 		
 	}
+	
+	public void resetFontSize() {
+		for (int i = 0; i<SIZEX;i++) {
+        	for (int j = 0; j<SIZEY;j++) {
+        		labels[i][j].setFont(new Font(labelFont.getName(), Font.PLAIN, schriftGroesse-5));
+        	}
+		}
+	}
+	
+	public void setLabelString(int i, int j, String k, int schriftGrosse) {
+		Font labelFont = labels[i][j].getFont();
+		labels[i][j].setFont(new Font(labelFont.getName(), Font.PLAIN, schriftGrosse));
+		labels[i][j].setText(k);
+		labels[i][j].setBackground(new Color(100,100,0));
+		
+	}
 
 	public void clear() {
 		
@@ -130,17 +156,54 @@ public class PlaygroundScreen {
 		fenster.dispose();
 		
 	}
+	
+	public void animation(String s, int line) {
+		int charPerLabel = 1;
+		int offset = 0;
+		while (true) {
+			if (Math.round(s.length()/charPerLabel)<this.SIZEX) {
+				break;
+			} else {
+				charPerLabel++;
+			}
+		}
+		
+		if (this.SIZEX*charPerLabel>s.length()) {
+			offset = Math.round((this.SIZEX*charPerLabel-s.length())/(2*charPerLabel));
+		}
+		
+		int atChar = s.length()/charPerLabel;
+		for  (int i=0;i<atChar;i++) {
+			String a = "";
+			try {
+				a = s.substring(i*charPerLabel, (i+1)*charPerLabel);
+			} catch (StringIndexOutOfBoundsException e) {
+				a = "A";
+			}
+			
+			
+			this.setLabelString(i+offset, line, a, 25-Math.round((charPerLabel*3)));
+		}
+		
+		panel.validate();
+		
+		
+
+
+	}
 
 	public void displayGewonnen() {
-		panel.removeAll();
-		panel.repaint();
-		JLabel jp = new JLabel("gewonnen");
-		GridBagConstraints c = new GridBagConstraints();
-		c.gridx = 1;
-		c.gridy = 1;
-		panel.add(jp, c);
-		fenster.validate();
-		fenster.repaint();
+		animation("gewonnen", 2);
+		animation("Richtig Awesome", 4);
+		animation("Neues Spiel?", 6);
+	}
+
+
+	public void displayVerloren() {
+		animation("verloren", 2);
+		animation("Das war schlecht", 4);
+		animation("Neues Spiel?", 6);
+		
 	}  
 }
 

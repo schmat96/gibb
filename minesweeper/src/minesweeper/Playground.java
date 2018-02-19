@@ -1,5 +1,7 @@
 package minesweeper;
 
+
+
 import java.util.Random;
 
 public class Playground {
@@ -12,6 +14,7 @@ public class Playground {
 	private final int BOMBS;
 	private final boolean CONSOLEOUTPUT;
 	private boolean cheat = false;
+	private Minesweeper ms;
 	
 	public Playground(int sizeX, int sizeY, Minesweeper ms) {
 		screen = new PlaygroundScreen(sizeX, sizeY, ms);
@@ -23,10 +26,12 @@ public class Playground {
 		this.playground = new int[sizeX+1][sizeY+1];
 		this.bombs = new boolean[sizeX+1][sizeY+1];
 		this.markierungen = new boolean[sizeX+1][sizeY+1];
+		this.ms = ms;
 		this.resetPlayground();
 	}
 	
 	public void resetPlayground() {
+		this.markierungen = new boolean[sizeX+1][sizeY+1];
 		Random rnd = new Random();
 		for (int i=0;i<this.sizeX;i++) {
 			for (int j=0;j<this.sizeY;j++) {
@@ -39,6 +44,7 @@ public class Playground {
 				
 			}
 		}
+		
 	}
 	
 	public void displayPlayGround() {
@@ -61,8 +67,6 @@ public class Playground {
 										System.out.print(playground[i][j]+"|");
 									}
 								}
-								
-								
 							}
 							
 							if (bombs[i][j] && cheat) {
@@ -126,7 +130,7 @@ public class Playground {
 	}
 
 	public void displayVerloren() {
-	
+		screen.displayVerloren();
 		
 	}
 
@@ -148,6 +152,7 @@ public class Playground {
 
 	public void displayGewonnen() {
 		screen.displayGewonnen();
+		
 	}
 
 	public void setFlag(int coordX, int coordY) {
@@ -165,5 +170,9 @@ public class Playground {
 	
 	public boolean getCheat() {
 		return this.cheat;
+	}
+
+	public PlaygroundScreen getScreen() {
+		return this.screen;
 	}
 }
