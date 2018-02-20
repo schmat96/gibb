@@ -1,0 +1,74 @@
+var i = 0;
+
+function checkRegex() {
+	var name = document.getElementById("inputFormLoginID").value;
+	var pw = document.getElementById("inputFormLoginPW").value;
+	var pattName = "[a-zA-Z]{5}"
+	var pattPW = "[a-zA-Z]{5}"
+	var checked = 0;
+	if (name.match(pattName)) {
+		document.getElementById("inputFormLoginID").style.border  = "thick solid #00C800";
+		checked++;
+	} else {
+		document.getElementById("inputFormLoginID").style.border  = "thick solid #C80000";
+	}
+	if (pw.match(pattPW)) {
+		document.getElementById("inputFormLoginPW").style.border  = "thick solid #00C800";
+		
+		checked++;
+	} else {
+		document.getElementById("inputFormLoginPW").style.border  = "thick solid #C80000";
+	}
+	if (checked == 2) {
+		document.getElementById("login_laden").style.display = "inline";
+	}
+}
+
+function login() {
+	var name = document.getElementById("inputFormLoginID").value;
+	var pw = document.getElementById("inputFormLoginPW").value;
+	if (name.length < 5 || pw.length < 5) {
+		document.getElementById("inputFormLoginID").placeholder  = "PW und oder Name zu kurz";
+	} else {
+		
+	
+	document.getElementById("inputFormLoginID").value  = "";
+	document.getElementById("inputFormLoginPW").value = "";
+	document.getElementById("inputFormLoginID").placeholder  = "Checking your input.";
+	document.getElementById("inputFormLoginPW").placeholder  = "";
+	
+	var d = document.getElementById("login_laden");
+	d.src = "bilder/laden.png";
+	d.style.background = "none";
+	d.className += " EinfacheDrehAnimation";
+	ladenSimulieren();
+	}
+}
+
+function loginGoingOn() {
+	var d = document.getElementById("login_laden");
+	d.className = "";
+	d.src = "bilder/navlogo2.png";
+	document.getElementById("inputFormLoginID").placeholder  = "";
+	document.getElementById("inputFormLoginPW").placeholder  = "nicht erfolgreich";
+}
+
+function openRegister() {
+	document.location.href = "registrierung.html";
+}
+
+
+
+function ladenSimulieren() {
+	setTimeout(function () {
+		if (i < 1500) {
+			
+			i++;
+			ladenSimulieren();
+		} else {
+			i = 0;
+			loginGoingOn();
+		}
+	
+}, 1)
+}

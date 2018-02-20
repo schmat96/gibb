@@ -1,0 +1,865 @@
+
+body {
+	font-size: 1.5em;
+	margin: 0;
+	padding: 0;
+	min-height: calc(100vh - 150px);
+	background-color: #DDDDDD;
+	font-family: Arial, sans-serif;
+}
+
+
+#content h2 {
+	margin: 0;
+}
+
+#header_navigation {
+	position: sticky;
+	left: 0px;
+	top: 0px;
+	margin: 0 0;
+	width: 100%;
+}
+
+nav {
+	background-color: #333333;
+	overflow: hidden;
+}
+
+nav ul {
+	list-style: none;
+	margin: auto auto;
+}
+
+nav li {
+	display:inline;
+	float: left;
+	height: 50px;
+}
+
+nav li:hover {
+	background-color: #ffab00;
+}
+
+li a, li h3, li p {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+}
+
+#navbarIconLogin, #navbarIconSuchen {
+	float: right;
+}
+
+#navbarIconLogin img, #navbarIconSuchen img {
+	width: 50px;
+	margin: 0 15px;
+
+
+}
+
+
+#navigationLogo {
+	width: 50px;
+	display: none;
+}
+
+.navbarIconsright {
+	float: right;
+	padding: 0 20px;
+	margin: 0 10px;
+}
+
+
+#navigationLogo {
+	display: none;
+}
+
+#searchDiv, #regDiv {
+	position: absolute;
+    right: 170px;
+    top: 0px;
+    z-index: 99;
+    width: 45%;
+    height: 50px;
+}
+
+#searchDiv form {
+	float: right;
+	height: 30px;
+}
+
+#searchDiv img {
+	width: 50px;
+	padding: 0 15px 0 15px;		
+}
+
+#inputFormSearch, #suchBox, #registrierung {
+	height: 30px;
+	width: 65%;
+	float: right;
+}
+
+#sliderDiv form input, , #regDiv form input {
+	margin: 6px 0 6px 0;
+}
+
+#searchSubmit {
+	display: none;
+	opacity: 0.0;
+}
+
+#loginDiv {
+	position: absolute;
+    right: 0px;
+    top: 60px;
+    z-index: 99;
+    width: 100%;
+    height: 50px;
+    background-color: #333333;
+}
+
+#login_laden {
+	display: none;
+}
+
+#inputFormLoginID, #inputFormLoginPW {
+	border-style: solid;
+	border-color: #C80000;
+	border-width: thick;
+}
+
+#loginDiv form {
+	float: right;
+	height: 30px;
+	z-index: 9999;
+}
+
+#loginBox {
+	width: 70%;
+	float: right;
+}
+
+#inputFormLoginID, #inputFormLoginPW {
+	height: 30px;
+	width: 23%;
+	float: right;
+	margin: 6px 5% 6px 0;
+	
+}
+
+#loginSubmit {
+	display: none;
+	opacity: 0.0;
+	-webkit-transition: .2s; /* 0.2 seconds transition on hover */
+}
+
+#loginDiv img {
+	width: 50px;
+	height: 50px;
+	margin: 0 15px;
+	float: right;
+	padding: 0 15px 0 15px;
+	background: #333333;
+}
+
+#loginDiv img:hover, #searchDiv img:hover {
+	background-color: #ffab00;
+}
+
+#navbarIconNavbar {
+	display: none;
+}
+
+#searchDiv {
+	display: none;
+}
+
+#loginDiv {
+	display: none;
+	opacity: 0.0;
+}
+
+/* Footer */
+
+#footer {
+	background-color: #333333;
+	width: 100%;
+	color: #CCCCCC;
+	height: 200px;
+	margin: 0;
+	padding: 10px 0 0 0;
+}
+
+#footer #logo {
+	margin: 0 10px 10px 10px;
+	height: 180px;
+	
+	float: left;
+	
+}
+
+#footer adress {
+	float: right;
+	
+}
+
+#footer #footer-links {
+	float: left;
+}
+
+#footer a {
+		color: #CCCCCC;
+
+}
+
+
+
+#footer #whiteLine {
+	width: calc(100% - 10px);
+	float: right;
+	height: 5px;
+	background-color: white;
+}
+
+#footer adress {
+	margin: 0 20px 0 0;
+}
+
+#footer .footerLogos {
+	width: 50px;
+}
+
+
+/* Content */
+
+#content {
+	width: 80%;
+	margin: 0 auto;
+	background-color: #DDDDDD;
+	padding: 0 10%;
+}
+
+#regDiv {
+
+}
+
+#regDiv 
+
+
+
+/* Filter */
+
+#filter {
+	background-color: #999999;
+	display: flex;
+	padding: 5px;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+#filter h2 {
+	display: none;
+}
+
+#filter button {
+	margin-left: auto;
+}
+
+.filterEinstellung {
+	flex: 1;
+}
+
+#showMore {
+	display: none;
+}
+
+#submitFiltereinstellungen {
+	float: right;
+	margin: -50px 0;
+}
+
+button {
+	background-color: #999999;
+	border: 2px solid #333333;
+	color: black;
+	margin-top: auto;
+	height: 80px;
+	border-radius: 10px;
+}
+
+button:hover {
+	border: 2px solid #ffab00;
+}
+
+.important {
+	text-decoration: underline;
+	display: inline;
+}
+
+
+/* @DEPRECATED
+@media screen min-width: 1024px {
+	.filterEinstellung {
+	flex: 1;
+	}
+	
+	#filter {
+	background-color: #999999;
+	display: flex;
+	padding: 5px;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	
+}
+}
+*/
+
+/*Kacheln */
+
+#inputFormSearchGruppe {
+	width: 100%;
+	height: 30px;
+	font-size: 25px;
+}
+
+#kachelContent {
+	display: block;
+	overflow: auto;
+}
+
+.kachel {
+	background-color: #CCCCCC;
+	border-radius: 10px;
+	margin: 20px 0%;
+	width: 100%;
+	display: inline-block;
+}
+
+
+.kachel img {
+	width: 40px;
+}
+
+
+.kachelHeader {
+	display: flex;
+}
+
+.kachelHeader h2 {
+	width: 61.8%;
+}
+
+.kachelContent {
+	display: flex;
+}
+
+.kachelBeschreibung {
+	width: 61.8%;
+	display: flex;
+}
+
+.tooltips {
+	display: inline;
+	margin: 0;
+}
+
+
+.kachelInfo {
+	display: flex;
+}
+
+.kachelRight {
+	margin-left: auto;
+	flex: 1;
+	margin-right: 0;
+	width: 61.8%;
+}
+
+.kachelInfo table {
+	width: 61.8%;
+}
+
+.tooltips:hover:after {
+	border: 1px solid #fc0;
+	padding: 3px 6px;
+	background: #fffea1;
+	content: attr(data-vollerText);
+	position: fixed;
+	top: 200px;
+	display: inline;
+
+}
+
+.tooltips {
+	display: inline;
+
+}
+
+.tooltips:hover {
+}
+
+/* Slider */
+
+
+
+#sliderDiv {
+    width: 80%;
+    margin: 20px 10% 0 10%;
+    cursor: grab;
+}
+
+#regForm {
+    width: 80%;
+    margin: 20px 10% 50px 10%;
+    cursor: grab;
+}
+
+#regForm input {
+    margin: 0;
+    width: 100%;
+    height: 50px;
+    font-size: 35px;
+    border-style: solid;
+	border-color: rgba(255, 0, 0, .3);
+	border-width: thick;
+}
+
+#regForm img {
+	width: 10%;
+	margin: 0 45% 0 45% 0;
+	
+}
+
+#registerLogo {
+	display: none;
+}
+
+#regForm p {
+    margin: 0;
+    float: right;
+    size: 20px;
+}
+
+#sliderDiv p, #regDiv p {
+	margin: 5px;
+	z-index: 0;
+	float: right;
+}
+
+/* The slider itself */
+.slider {
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    border-style: solid;
+    border-color: #CCCCCC;
+    width: 100%; /* Full-width */
+    height: 25px; /* Specified height */
+    background: #d3d3d3; /* Grey background */
+    outline: none; /* Remove outline */
+   
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+    border-style: solid;
+    border-color:  #ffab00;
+}
+
+/* The slider handle (use webkit (Chrome, Opera, Safari, Edge) and moz (Firefox) to override default look) */ 
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    background: #333333; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    background: #4CAF50; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+}
+
+/* Quick Navigation */
+
+#content ul {
+	background-color: #333333;
+	text-aling: left;
+	list-style-type: none;
+	padding: 0px;
+}
+
+#content ul a, #content ul a {
+	background-color: #333333;
+}
+
+#content ul li {
+	height: 80px;
+}
+
+
+
+
+#content ul li img {
+	height: 59px;
+	z-index: 0;
+	position: relative; float: left;
+	top: -40px;
+	left: 0%;
+    -webkit-transition: 5s;
+    transition: left 16s;	
+    transform: scaleX(1);
+}
+
+#content ul li a:hover {
+	background-color: #444444;
+}
+
+#content ul li:hover img {
+	left: 100%;
+	transform: scaleX(-1);
+}
+
+/* Profil */
+#contentProfil  {
+	width: 80%;
+	margin: 0 auto;	
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+
+#userInformation {
+	flex: 0 0 61.8%;
+	margin: 0;
+    float: left;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#userInformationenText {
+	flex: 0 0 75%;
+}
+
+#userInformation h2 {
+	margin-top: 0;
+	flex: 0 0 100%;
+}
+
+#userInformation img {
+	flex: 0 0 25%;
+	width: 25%;
+	height: 150px;
+
+}
+
+#userWertung, chat {
+	flex: 0 0 32.2%;
+	display: inline;
+	float: right;
+}
+
+#userAchievements {
+	flex: 1 1 100%;
+	flex-wrap: wrap;
+	display: flex;
+}
+
+#userAchievements h3 {
+	flex: 0 0 100%;
+}
+
+#userSelfInformations {
+	margin: 0 20px;
+	padding: 1em;
+}
+
+#userInformationenText {
+	float: right;
+}
+
+#f1_container, #f2_container, #f3_container {
+  position: relative;
+  margin: 10px auto;
+  width: 200px;
+  height: 200px;
+  z-index: 1;
+  margin: 10px;
+  flex: 0 0 20%;
+   margin: 0;
+}
+
+#f1_container img, #f2_container img, #f3_container img {
+
+  width: 200px;
+  height: 200px;
+}
+
+#f1_card, #f2_card, #f3_card {
+  width: 200px;
+  height: 200px;
+   margin: 0;
+  transform-style: preserve-3d;
+  transition: all 1.0s linear;
+}
+#f1_container:hover #f1_card, #f2_container:hover #f2_card, #f3_container:hover #f3_card {
+  transform: rotateY(180deg);
+  box-shadow: -5px 5px 5px #aaa;
+      margin: 0;
+}
+.face {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  backface-visibility: hidden;
+      margin: 0;
+}
+.face.back {
+  display: block;
+  transform: rotateY(180deg);
+  box-sizing: border-box;
+  padding: 10px;
+  color: white;
+  text-align: center;
+  background-color: #aaa;
+      margin: 0;
+}
+
+
+.langsamKeLuschtMe {
+	display: block;
+	height: 150px;
+}
+
+#userInformation ul {
+	list-style: none;
+}
+
+.bewertungBild {
+	flex: 0 1 15%;
+	width: 30%;
+	float: left;
+}
+
+.langsamKeLuschtMe p, .langsamKeLuschtMe h2, .langsamKeLuschtMe h3 {
+	margin: 0;
+}
+
+.achievements {
+	width: 16%;
+}
+
+
+/* Profil Ende */
+
+/* Gallery */
+
+
+#chooseGame img {
+	width: 150px;
+	margin: auto;
+	opacity: 1;
+	border: 3px solid rgba(5, 5, 5, 0.1);
+	-webkit-transition: 5s;
+}
+
+#chooseGame {
+	margin: 0 auto;
+	width: 80%;
+	text-align: center;
+}
+
+#chooseGame img:hover {
+		border: 3px solid rgba(255, 171, 0, 1);
+}
+
+/* Gallery Ende */
+
+/* Filter Einstellungen */
+
+#loadingFiltersImg {
+	height: 30px;
+	display: none;
+	opacity: 1;
+}
+
+#filterEinstellungHinweis {
+	display: none;
+}
+
+ #filterEinstDiv {
+ 	display: none;
+ }
+ 
+ #filterEinstDiv h3 {
+ 	margin: 0px;
+ }
+ 
+ #filterSliderValue {
+ 	display: inline;
+ }
+ 
+ #filterEinstellungen {
+ 	width: 80%;
+ 	margin: 0 auto;
+ }
+ 
+ 
+#orangeFlaeche {
+ 	position: fixed;
+ 	top: 20%;
+ 	left: 0;
+ 	width: 100%;
+ 	text-align: center;
+ 	height: 100%;
+	opacity: 1;
+	margin: 0;
+	display: none;
+	z-index: 1000;
+	color: #ffab00;
+ }
+ 
+ #orangeFlaeche h2 {
+	color: black;
+ }
+ 
+  #orangeFlaecheBrett {
+	margin: 0;
+ }
+ 
+#filterEinstellungen input[type=checkbox]
+{
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(2); /* IE */
+  -moz-transform: scale(2); /* FF */
+  -webkit-transform: scale(2); /* Safari and Chrome */
+  -o-transform: scale(2); /* Opera */
+  padding: 10px;
+}
+
+#filterEinstellungen input[type="number"] { 
+	font-size: 20px;
+	padding: 3px 0;
+	width: 40px;
+	line-height: 30px; 
+}
+
+/* The switch - the box around the slider */
+.switchh {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switchh input {display:none;}
+
+/* The slider */
+.sliderr {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.sliderr:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .sliderr {
+  background-color: #2196F3;
+}
+
+input:focus + .sliderr {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .sliderr:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.sliderr.round {
+  border-radius: 34px;
+}
+
+.sliderr.round:before {
+  border-radius: 50%;
+}
+
+
+/* Filter Einstellungen Ende */
+
+
+
+.EinfacheDrehAnimation {
+	-webkit-animation: rotating 5s linear infinite;
+ 	 -moz-animation: rotating 5s linear infinite;
+ 	 -ms-animation: rotating 5s linear infinite;
+  	-o-animation: rotating 5s linear infinite;
+ 	 animation: rotating 5s linear infinite;	
+}
+
+
+
+@-webkit-keyframes rotating /* Safari and Chrome */ {
+  from {
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotating {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>ICT-Campus - Modul 101</title>
+		
+		<meta charset="utf-8"> 
+		<!--
+		<link rel="stylesheet" media="screen and (min-device-width: 1100px)" href="style/main.css" />
+		<link rel="stylesheet" media="screen and (max-device-width: 1100px)" href="style/mobileMain.css" />
+		-->
+		<link rel="stylesheet" href="css/main.css" />
+		<link rel="stylesheet" href="css/mobileStyle.css" />
+		<link rel="stylesheet" href="css/tabletStyle.css" />
+		
+		<link rel="icon" href="bilder/logo.png">
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<script>
+				(function loadJS(){
+			  		function load(script) {
+			    document.write('<'+'script src="js/'+script+'" type="text/javascript"><' + '/script>');
+			  }
+			  		
+
+				  function loadCSS(script) {
+				    document.write('<link rel="stylesheet" href="http://ict-campus.net/43eKGM/schmidmath/css/'+script+'" />');
+				  }
+				  
+
+			  load("openSearch.js");
+			  load("openLogin.js");
+			  load("openNavbar.js");
+			  load("scrollTop.js");
+			  load("login.js");
+			  load("refreshOnResize.js");
+			})();
+		</script>
+		
+		
+
+		
+	</head>
+	<body  onload="loadJS()" >
+	
+			<div id="header_navigation">		
+				<nav>
+					<ul>
+						<li id="navigationLogo"><img src="bilder/navlogo.png"  onclick="NavBaropen()" alt="öffne deine Navbar"></li>
+						<li id="navText1"><a href="index.html">Home</a></li>
+						<li id="navText2"><a href="gruppensuche.html">Gruppensuche</a></li>
+						<li id="navText3"><a href="profil.html">Profil</a></li>
+						<li id="navText4"><a href="impressum.html">Impressum</a></li>
+						<li id="navbarIconLogin" data-triggered="true" ><img src="bilder/login.png" id="navbarIconLoginImg"   onclick="openLogin()" alt="öffne deine Navbar"></li>
+						<li id="navbarIconSuchen" data-triggered="true"><img src="bilder/suchen.png" id="navbarIconSuchenImg"  onclick="openSearch()" alt="öffne deine Navbar"></li>
+						<li id="navbarIconNavbar" data-triggered="true"><img src="bilder/navlogo.png" id="navbarIconNavbarImg"  onclick="openNavbar()" alt="öffne deine Navbar"></li>
+					</ul>
+				</nav>
+						
+				<div id="loginDiv">			
+					<form name="loginBox" id="loginBox" target="#here" method="post">
+						<img src="bilder/register.png"   onclick="openRegister()" alt="öffne deine Navbar">
+						<img src="bilder/navlogo2.png"   id="login_laden" onclick="login()" alt="öffne deine Navbar">
+						<input id="inputFormLoginID" type="text" placeholder="Dein Name" name="firstname">
+						<input id="inputFormLoginPW" type="password" placeholder="Dein Passwort" name="firstname">
+						<input id="loginSubmit" type="submit" />	
+					</form>		
+					
+				</div>
+				
+				<div id="searchDiv">			
+					<form name="suchBox" id="suchBox" target="#here" method="post">
+						<img src="bilder/suchen.png"  onclick="openSearch()" alt="öffne deine Navbar">
+						<input id="inputFormSearch" type="text" placeholder="Dein Suchbegriff" name="firstname">
+						<input id="searchSubmit" type="submit" />				
+					</form>		
+				</div>
+			</div>
+			
+			
+	<div id="contentProfil">
+		<div id="userInformation">
+			<h2>User #150798</h2>
+			<img src="http://ict-campus.net/43eKGM/schmidmath/bilder/profilbild.png" id="userProfilbild"  alt="hier wäre dein Profilbild">
+			<div id="userInformationenText">
+				<h3>Informationen</h3>
+			<ul>
+				<li>Test1</li>
+				<li>Das ist eine längere Info</li>
+				<li>Lorem</li>
+				<li>Ipsum Lorem</li>
+			</ul>
+			</div>
+			
+		
+			<div id="userSelfInformations">
+				Hier hat der User Platz für eigene Informationen. Super, oder?
+			</div>
+		</div>
+		<div id="userWertung">
+		<div class="langsamKeLuschtMe">
+			<img src="http://ict-campus.net/43eKGM/schmidmath/bilder/bewertung.png" class="bewertungBild"  alt="hier wäre dein Bewertungssymbol">
+			
+			<h2>Gesamtwertung</h2>
+			<p>112.3</p>
+			</div>
+		<div class="langsamKeLuschtMe">
+			<img src="http://ict-campus.net/43eKGM/schmidmath/bilder/bewertung.png" class="bewertungBild"  alt="hier wäre dein Bewertungssymbol">
+			<h3>Smite</h3>
+			<p>122.3</p>
+		</div>
+		<div class="langsamKeLuschtMe">
+			<img src="http://ict-campus.net/43eKGM/schmidmath/bilder/bewertung.png" class="bewertungBild"  alt="hier wäre dein Bewertungssymbol">
+			<h3>CS:GO</h3>
+			<p>102.3</p>
+			</div>
+		</div>
+		<div id="userAchievements">
+			<h3>Achievements</h3>
+			<div id="f1_container">
+					<div id="f1_card">
+						<div class="front face">
+						    <img src="http://ict-campus.net/43eKGM/schmidmath/bilder/achievement.png" alt="hier wäre dein Achievement">
+						</div>
+						<div class="back face center">
+						    <p>Hier könnte man Infos über das Achievement platzieren</p>
+						</div>
+				</div>
+			</div>
+			<div id="f2_container">
+					<div id="f2_card" >
+						<div class="front face">
+						    <img src="http://ict-campus.net/43eKGM/schmidmath/bilder/achievement.png" alt="hier wäre dein Achievement">
+						</div>
+						<div class="back face center">
+						    <p>Um das ganze für Mobil fähig zu machen müsste man mit onclick arbeiten; leider habe </p>
+						</div>
+				</div>
+			</div>
+			<div id="f3_container">
+					<div id="f3_card" >
+						<div class="front face">
+						    <img src="http://ict-campus.net/43eKGM/schmidmath/bilder/achievement.png" alt="hier wäre dein Achievement">
+						</div>
+						<div class="back face center">
+						    <p>ich keine Zeit mehr und muss jetzt an der Doku arbeiten</p>
+						</div>
+				</div>
+			</div>
+			
+	
+		</div>
+	</div>
+	
+	<div id="footer">
+		<div id="whiteLine"></div>
+		<img src="bilder/logo.png" id="logo" alt="öffne deine Navbar">
+
+		<div id="footer-links">
+		<br>
+			<a  href="index.html"><img  class="footerLogos" src="bilder/home.png" id="homeLogo" alt="zum Home"></a><a href="index.html"><span>zurück zu Home</span></a> <br> <!-- Cause Lazy und höhe von footer ist eh immer gleich :D--><br>
+			<img class="footerLogos" src="bilder/pfeil.png" id="pfeilLogo" alt="zum Home" onclick="topFunction()"><a href="profil.html#" onclick="topFunction()"><span>zum Anfang der Seite</span></a>
+		</div>
+		<br>
+		<div id="adress">
+			Written by <a href="mailto:Mathias.Schmid@ict-campus.com">Mathias Schmid</a>.<br> 
+			Visit us at:<br>
+			Engehaldenstrasse 26<br>
+			3012 Bern<br>
+			Switzerland
+		</div>	
+	</div>
+	</body>
+</html>

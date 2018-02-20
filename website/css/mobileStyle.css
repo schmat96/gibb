@@ -1,0 +1,240 @@
+@media screen and (min-width: 1px) and (max-width: 768px),
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 1)
+
+
+ {
+ 
+ 	body {
+ 		font-size: 1em;
+ 	}
+	
+	#loginBox {
+	width: 100%;
+	}
+	
+	#loginBox {
+		float: left;
+	}
+	
+	#inputFormLoginID, #inputFormLoginPW {
+	height: 30px;
+	width: 50%;
+	margin: 6px 0 6px 0;
+
+	}
+	
+
+	
+	#loginDiv {
+	position: absolute;
+    right: 0px;
+    top: 60px;
+    z-index: 99;
+    width: 100%;
+    height: 100px;
+    background-color: #333333;
+
+	}
+	
+	#loginDiv {
+		display: none;
+	}
+	
+	#searchDiv {
+		margin-left: 20px;
+	}
+	
+	#suchBox {
+		width: 100%;
+	}
+	
+
+	
+	#navbarIconNavbar {
+	display: block;
+	width: 50px;
+	}
+	
+	#navbarIconNavbar img {
+		margin-top: 8px;
+		width: 50px;
+	}
+	
+	
+	#navText1, #navText2, #navText3, #navText4 {
+		position: absolute;
+    	right: 0px;
+		display: none;
+    	z-index: 99;
+    	width: 0%;
+    	height: 50px;
+    	background-color: #333333;
+    	border-top-style: solid;
+    	border-color: #ffab00;
+	}
+	
+	#navText1 {
+		top: 60px;
+	}
+	
+	#navText2 {
+		top: 110px;
+	}
+	
+	#navText3 {
+		top: 160px;
+	}
+	
+	#navText4 {
+		top: 210px;
+	}
+	
+		#footer a span {
+		display: none;
+	}
+	
+	#footer #adress {
+		display: none;
+	}
+	
+	#content {
+		width: 95%;
+		padding: 0 2.5%;
+		margin: 0;
+	}
+	
+
+	
+#footer a span {
+		display: none;
+	}
+	
+#filter h2 {
+	display: inline-block;
+	font-size: 20px;
+}
+
+
+#filter {
+	display: block;
+	margin: 0;
+	overflow: auto;
+}
+
+.filterEinstellung {
+	display: none;
+	width: 45%;
+}
+
+
+#showMore {
+	display: inline-block;
+	margin-right: 5px;
+}
+
+
+#filter button {
+	margin-top: auto;
+	float: right;
+	font-size: 16px;
+	height: 50px;
+}
+
+#filter button:hover {
+	border: 2px solid #ffab00;
+}
+
+#userInformation {
+	flex: 0 0 100%;
+}
+
+#userWertung {
+	flex: 0 0 100%;
+}
+
+.langsamKeLuschtMe {
+	height: 190px;
+}
+
+
+.bewertungBild {
+	height: 45%;
+	width: auto;
+}
+
+
+#contentProfil {
+	width: 100%;
+	margin: 0 5px;
+}
+
+
+
+	
+}
+
+@media screen and (min-width: 1px) and (max-width: 510px) {
+	#searchDiv {
+		display: none;
+	}
+	
+	#searchDiv {
+	position: absolute;
+    right: 0px;
+    top: 60px;
+    z-index: 99;
+    width: 100%;
+    height: 50px;
+    background-color: #333333;
+}
+
+#searchDiv form {
+	float: right;
+	height: 30px;
+}
+
+#searchDiv img {
+	display: inline;
+}
+
+#searchBox {
+	width: 80%;
+	float: right;
+}
+
+#inputFormSearch {
+	height: 30px;
+	width: 60%;
+	float: right;
+	margin: 6px 5% 6px 0;
+}
+
+#searchSubmit {
+	display: none;
+	opacity: 0.0;
+	
+}
+
+#inputFormLoginID, #inputFormLoginPW {
+	height: 30px;
+	width: 30%;
+	margin: 6px 0 6px 0;
+
+	}
+
+#searchDiv img {
+	width: 50px;
+	height: 50px;
+	margin: 0 15px;
+	float: right;
+}
+
+	#footer a span {
+		display: none;
+	}
+	
+	#footer .adress {
+		display: none;
+	}
+	
+}

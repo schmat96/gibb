@@ -1,0 +1,194 @@
+@media screen and (min-width: 769px) and (max-width: 1023px) {
+	
+	#loginBox {
+	width: 100%;
+	}
+	
+	#inputFormLoginID, #inputFormLoginPW {
+	height: 30px;
+	width: 35%;
+	margin: 6px 0 6px 0;
+	}
+	
+	#navbarIconNavbar {
+	display: none;
+	}
+	
+	#loginDiv {
+		display: none;
+	}
+	
+	#searchDiv {
+		display: none;
+	}
+	
+#searchDiv {
+	position: absolute;
+    right: 0px;
+    top: 60px;
+    z-index: 99;
+    width: 100%;
+    height: 50px;
+    background-color: #333333;
+}
+
+#searchDiv form {
+	float: right;
+	height: 30px;
+}
+
+#searchDiv img {
+	display: inline;
+}
+
+#searchBox {
+	width: 80%;
+	float: right;
+}
+
+#inputFormSearch {
+	height: 30px;
+	width: 40%;
+	float: right;
+	margin: 6px 5% 6px 0;
+}
+
+#searchSubmit {
+	display: none;
+	opacity: 0.0;
+	
+}
+
+#searchDiv img {
+	width: 50px;
+	height: 50px;
+	margin: 0 15px;
+	float: right;
+}
+
+#footer a span {
+		display: none;
+	}
+	
+#filter h2 {
+	display: inline-block;
+	font-size: 20px;
+}
+
+#filter h3 {
+	margin: 5px;
+}
+
+#filter p {
+	margin: 0px;
+}
+
+
+#filter {
+	display: block;
+	margin: 0;
+	overflow: auto;
+}
+
+.filterEinstellung {
+	display: none;
+	width: 45%;
+}
+
+
+#showMore {
+	display: inline-block;
+	margin-right: 5px;
+}
+
+
+#filter button {
+	margin-top: auto;
+	float: right;
+	font-size: 16px;
+	height: 50px;
+}
+
+#filter button:hover {
+	border: 2px solid #ffab00;
+}
+
+#contentProfil  {
+	width: 80%;
+	margin: 0 auto;	
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+
+#userInformation {
+	flex: 0 0 100%;
+	margin: 0;
+    float: left;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#userInformationenText {
+	flex: 0 0 75%;
+}
+
+#userInformation h2 {
+	flex: 0 0 100%;
+}
+
+#userInformation img {
+	flex: 0 0 15%;
+	width: 150px;
+	height: 150px;
+
+}
+
+#userWertung {
+	flex: 0 0 100%;
+	display: inline;
+	float: right;
+}
+
+#userAchievements {
+	flex: 1 1 100%;
+	flex-wrap: wrap;
+	display: flex;
+}
+
+#userAchievements h3 {
+	flex: 0 0 100%;
+}
+
+#userSelfInformations {
+	margin: 0 20px;
+	padding: 1em;
+}
+
+#userInformationenText {
+	float: right;
+}
+
+
+
+.langsamKeLuschtMe {
+	display: block;
+	height: 150px;
+}
+
+#userInformation ul {
+	list-style: none;
+}
+
+.bewertungBild {
+	flex: 0 1 15%;
+	height: 100px;
+	width: 100px;
+}
+
+
+
+	
+}

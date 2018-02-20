@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<title>ICT-Campus - Modul 101</title>
+		
+		<meta charset="utf-8"> 
+		<!--
+		<link rel="stylesheet" media="screen and (min-device-width: 1100px)" href="style/main.css" />
+		<link rel="stylesheet" media="screen and (max-device-width: 1100px)" href="style/mobileMain.css" />
+		-->
+		<link rel="stylesheet" href="css/main.css" />
+		<link rel="stylesheet" href="css/mobileStyle.css" />
+		<link rel="stylesheet" href="css/tabletStyle.css" />
+		
+		<link rel="icon" href="bilder/logo.png">
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<script>
+				(function loadJS(){
+			  		function load(script) {
+			    document.write('<'+'script src="js/'+script+'" type="text/javascript"><' + '/script>');
+			  }
+			  		
+
+				  function loadCSS(script) {
+				    document.write('<link rel="stylesheet" href="http://ict-campus.net/43eKGM/schmidmath/css/'+script+'" />');
+				  }
+				  
+
+			  load("openSearch.js");
+			  load("openLogin.js");
+			  load("openNavbar.js");
+			  load("scrollTop.js");
+			  load("login.js");
+			  load("refreshOnResize.js");
+			  load("sound.js");
+			})();
+		</script>
+		
+		
+
+		
+	</head>
+	<body  onload="loadJS()" >
+	
+			<div id="header_navigation">		
+				<nav>
+					<ul>
+						<li id="navigationLogo"><img src="bilder/navlogo.png"  onclick="NavBaropen()" alt="öffne deine Navbar"></li>
+						<li id="navText1"><a href="index.html">Home</a></li>
+						<li id="navText2"><a href="gruppensuche.html">Gruppensuche</a></li>
+						<li id="navText3"><a href="profil.html">Profil</a></li>
+						<li id="navText4"><a href="impressum.html">Impressum</a></li>
+						<li id="navbarIconLogin" data-triggered="true" ><img src="bilder/login.png" id="navbarIconLoginImg"   onclick="openLogin()" alt="öffne deine Navbar"></li>
+						<li id="navbarIconSuchen" data-triggered="true"><img src="bilder/suchen.png" id="navbarIconSuchenImg"  onclick="openSearch()" alt="öffne deine Navbar"></li>
+						<li id="navbarIconNavbar" data-triggered="true"><img src="bilder/navlogo.png" id="navbarIconNavbarImg"  onclick="openNavbar()" alt="öffne deine Navbar"></li>
+					</ul>
+				</nav>
+						
+				<div id="loginDiv">			
+					<form name="loginBox" id="loginBox" target="#here" method="post">
+						<img src="bilder/register.png"   onclick="openRegister()" alt="öffne deine Navbar">
+						<img src="bilder/navlogo2.png"   id="login_laden" onclick="login()" alt="öffne deine Navbar">
+						<input id="inputFormLoginID" type="text" placeholder="Dein Name" name="firstname">
+						<input id="inputFormLoginPW" type="password" placeholder="Dein Passwort" name="firstname">
+						<input id="loginSubmit" type="submit" />	
+					</form>		
+					
+				</div>
+				
+				<div id="searchDiv">			
+					<form name="suchBox" id="suchBox" target="#here" method="post">
+						<img src="bilder/suchen.png"  onclick="openSearch()" alt="öffne deine Navbar">
+						<input id="inputFormSearch" type="text" placeholder="Dein Suchbegriff" name="firstname">
+						<input id="searchSubmit" type="submit" />				
+					</form>		
+				</div>
+			</div>
+			
+			
+	<div id="content">
+		<audio id="hupen" controls="controls" style="display:none" onloadeddata="setHalfVolume('hupen')">
+    		<source src="sounds/posthorn.mp3"  type="audio/mp3">
+		</audio>
+		<audio id="starten" controls="controls" style="display:none">
+    		<source src="sounds/start.mp3"  type="audio/mp3">
+		</audio>
+		<h2> Impressum </h2>
+		<ul>
+			<li><h3>Bildquellen</h3></li>
+			<li><a href="https://www.spreadshirt.at/rennwagen+witzig+comic+t-shirts-A104188838">Rennauto (Click me to get to the source.)</a><img src="bilder/rennwagen.png" alt="öffne deine Navbar"></li>
+			<li><a href="https://play.google.com/store/apps/details?id=it.michcorp.android.xboxachievementsguide">Achievement XBOX Symbol (Click me to get to the source.)</a><img src="http://ict-campus.net/43eKGM/schmidmath/bilder/achievement.png" alt="öffne deine Navbar"></li>
+			<li><a href="http://homesonthenet.info/asginfo-gold-star-border-transparent.html">Goldkranz (Click me to get to the source.)</a><img src="http://ict-campus.net/43eKGM/schmidmath/bilder/bewertung.png" alt="öffne deine Navbar"></li>
+			<li><p>Alle anderen Symbole/Bilder wurden, mit vorbehalt, selber hergestellt.</p></li>
+			<li><h3>Soundquellen</h3></li>
+			<li onmouseover="hupen()"><a href="https://www.postauto.ch/de/dreiklanghorn">Dreiklanghorn (Click me to get to the source.)</a></li>
+			<li onmouseover="startSong()"><a href="http://www.hoerspielbox.de/pkw-faehrt-los/">Auto fährt los (Click me to get to the source.)</a></li>
+		
+		</ul>
+		<h3>Stand 18.01.2018 17:47: </h3><img src="http://ict-campus.net/43eKGM/schmidmath/bilder/w3c/css.png" alt="W3C - CSS Validiert" style="width: 200px"><img src="http://ict-campus.net/43eKGM/schmidmath/bilder/w3c/html5.png" alt="W3C - HTML5 Validiert"  style="width: 200px">
+	</div>
+	
+	<div id="footer">
+		<div id="whiteLine"></div>
+		<img src="bilder/logo.png" id="logo" alt="öffne deine Navbar">
+
+		<div id="footer-links">
+		<br>
+			<a  href="index.html"><img  class="footerLogos" src="bilder/home.png" id="homeLogo" alt="zum Home"></a><a href="index.html"><span>zurück zu Home</span></a> <br> <!-- Cause Lazy und höhe von footer ist eh immer gleich :D--><br>
+			<img class="footerLogos" src="bilder/pfeil.png" id="pfeilLogo" alt="zum Home" onclick="topFunction()"><a href="impressum.html#" onclick="topFunction()"><span>zum Anfang der Seite</span></a>
+		</div>
+		<br>
+		<div id="adress">
+			Written by <a href="mailto:Mathias.Schmid@ict-campus.com">Mathias Schmid</a>.<br> 
+			Visit us at:<br>
+			Engehaldenstrasse 26<br>
+			3012 Bern<br>
+			Switzerland
+		</div>	
+	</div>
+	</body>
+</html>
