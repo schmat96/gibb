@@ -18,10 +18,15 @@ public class Minesweeper {
 		private Boolean running = true;
 		private final int SIZEX = 20;
 		private final int SIZEY = 20;
-		private final int BOMBS = 100;
+		private final int BOMBS = 20;
 		private final int SCREENSIZE = 800;
 		private final boolean CONSOLEOUTPUT = true;
 		private boolean gewonnen = false;
+		
+		private boolean started = false;
+		
+		private long startedTime;
+		private long stoppedTime;
 	
 	
 
@@ -113,6 +118,9 @@ public class Minesweeper {
 	 * @param coordY the y-coord for the input
 	 */
 	public void leftClickOn(int coordX, int coordY) {
+		if (started==false) {
+			startTimer();
+		}
 		if (gewonnen) {
 			pg.resetPlayground();
 			pg.getScreen().resetFontSize();
@@ -125,9 +133,12 @@ public class Minesweeper {
 			
 			Boolean bombBoolean = pg.inputOn(coordX, coordY);
 			if (bombBoolean==true) {
+				
+				stopTimer();
 				verloren();
 			} else {
 				if (pg.checkToWin()) {
+					stopTimer();
 					gewonnen();
 				}
 			}
@@ -137,6 +148,21 @@ public class Minesweeper {
 		}
 		
 		
+	}
+
+	private void stopTimer() {
+		started = false;
+		this.stoppedTime = System.currentTimeMillis();
+	}
+
+	private void startTimer() {
+		started = true;
+		this.startedTime = System.currentTimeMillis();
+		
+	}
+	
+	public long getTime() {
+		return (this.stoppedTime-this.startedTime)/1000;
 	}
 
 	private void gewonnen() {

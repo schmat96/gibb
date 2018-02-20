@@ -7,6 +7,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.Random;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -14,6 +15,7 @@ import javax.swing.border.Border;
 public class PlaygroundScreen {
 	
 	
+	private static final Color FOREGROUNDCOLOR = new Color(255,255,200);
 	private JLabel[][] labels;
 	private JFrame fenster;
 	private JPanel panel;
@@ -86,7 +88,7 @@ public class PlaygroundScreen {
 			labelBombs.setPreferredSize(new Dimension(labelSizeX, labelSizeY));
 			labelBombs.validate();
 			labelBombs.setBackground(new Color(100, 100, 100));
-			labelBombs.setForeground(new Color(255,255,200));
+			labelBombs.setForeground(FOREGROUNDCOLOR);
 			Border blackline = BorderFactory.createLineBorder(Color.black);
 			labelBombs.setBorder(blackline);
 			labelBombs.addMouseListener(new mouseListener(labelBombs, i, j, ms));
@@ -94,6 +96,7 @@ public class PlaygroundScreen {
 			c.gridx = i;
 			c.gridy = j;
 			panel.add(labels[i][j], c);
+			
 		}
     };
 
@@ -135,6 +138,7 @@ public class PlaygroundScreen {
 		for (int i = 0; i<SIZEX;i++) {
         	for (int j = 0; j<SIZEY;j++) {
         		labels[i][j].setFont(new Font(labelFont.getName(), Font.PLAIN, schriftGroesse-5));
+        		labels[i][j].setForeground(FOREGROUNDCOLOR);
         	}
 		}
 	}
@@ -143,8 +147,8 @@ public class PlaygroundScreen {
 		Font labelFont = labels[i][j].getFont();
 		labels[i][j].setFont(new Font(labelFont.getName(), Font.PLAIN, schriftGrosse));
 		labels[i][j].setText(k);
-		labels[i][j].setBackground(new Color(100,100,0));
 		
+		labels[i][j].setForeground(new Color(255,255,255));
 	}
 
 	public void clear() {
@@ -193,16 +197,52 @@ public class PlaygroundScreen {
 	}
 
 	public void displayGewonnen() {
+		for (int i = 0; i<SIZEX;i++) {
+        	for (int j = 0; j<SIZEY;j++) {
+        		int rColor = Math.round(i*(255/SIZEX));
+        		int gColor = Math.round(j*(155/SIZEX)+100);
+        		int bColor =  Math.round(i*(155/SIZEX)+100);
+        		labels[i][j].setBackground(new Color(rColor,gColor,bColor));
+        		if ((i+j)%3==0) {
+        			labels[i][j].setText("^^");
+        		} else {
+        			labels[i][j].setText("");
+        		}
+        		
+        	}
+		}
 		animation("gewonnen", 2);
 		animation("Richtig Awesome", 4);
-		animation("Neues Spiel?", 6);
+		animation("Gebrauchte Zeit", 6);
+		animation(ms.getTime()+"sec", 8);
+		animation("Neues Spiel?", 10);
 	}
 
 
 	public void displayVerloren() {
+		
+		for (int i = 0; i<SIZEX;i++) {
+        	for (int j = 0; j<SIZEY;j++) {
+        		int rColor = Math.round(i*(255/SIZEX));
+        		int gColor = Math.round(j*(155/SIZEX)+100);
+        		int bColor =  Math.round(i*(155/SIZEX)+100);
+        		labels[i][j].setBackground(new Color(rColor,gColor,bColor));
+        		if (i==0) {
+        			labels[i][j].setText("B");
+        		} else if (i==SIZEX-1) {
+        			labels[i][j].setText("D");
+        		} else {
+        			labels[i][j].setText("=");
+        		}
+        		
+        	}
+		}
 		animation("verloren", 2);
 		animation("Das war schlecht", 4);
-		animation("Neues Spiel?", 6);
+		animation("Zeit wasted", 6);
+		animation(ms.getTime()+"sec", 8);
+		animation("Neues Spiel?", 10);
+		
 		
 	}  
 }
