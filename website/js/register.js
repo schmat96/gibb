@@ -1,6 +1,29 @@
+
+function loadJqueryThings() {
+	$( "#emailForm" ).hover(
+			  function() {
+				  $( "#regEmail" ).focus();
+			  }
+	);
+	$( "#passwort1Form" ).hover(
+			  function() {
+				  $( "#regPasswort1" ).focus();
+			  }
+	);
+	$( "#passwort2Form" ).hover(
+			  function() {
+				  $( "#regPasswort2" ).focus();
+			  }
+	);
+	$( "#passwort2Form" ).hover(
+			  function() {
+				  $( "#regPasswort2" ).focus();
+			  }
+	);
+}
+
+
 function checkRegister() {
-	var name = document.getElementById("regName");
-	var vorname = document.getElementById("regVorname");
 	var pw1 = document.getElementById("regPasswort1");
 	var pw2 = document.getElementById("regPasswort2");
 	var email = document.getElementById("regEmail");
@@ -12,42 +35,46 @@ function checkRegister() {
 	var colorCorrect =  "rgba(0, 255, 0, .3)";
 	var colorWrong = "rgba(255, 0, 0, .3)";
 	
-	if (name.value.match(pattName)) {
-		name.style.border  = "thick solid "+ colorCorrect;
-		checked++;
-	} else {
-		name.style.border  = "thick solid "+ colorWrong;
-	}
-	
-	if (vorname.value.match(pattName)) {
-		vorname.style.border  = "thick solid "+ colorCorrect;
-		checked++;
-	} else {
-		vorname.style.border  = "thick solid "+ colorWrong;
-	}
-	
 	if (pw1.value.match(pattName)) {
 		pw1.style.border  = "thick solid "+ colorCorrect;
 		checked++;
+		document.getElementById("passwort1FormHinweis").style.display = "none";
 	} else {
 		pw1.style.border  = "thick solid "+ colorWrong;
+		if ($("#regPasswort1").is(':focus')) {
+			document.getElementById("passwort1FormHinweis").style.display = "inline";
+		} else {
+			document.getElementById("passwort1FormHinweis").style.display = "none";
+		}
 	}
 	
 	if (pw1.value==pw2.value && pw2.value!="") {
 		pw2.style.border  = "thick solid "+ colorCorrect;
+		document.getElementById("passwort2FormHinweis").style.display = "none";
 		checked++;
 	} else {
 		pw2.style.border  = "thick solid "+ colorWrong;
+		if ($("#regPasswort2").is(':focus')) {
+			document.getElementById("passwort2FormHinweis").style.display = "inline";
+		} else {
+			document.getElementById("passwort2FormHinweis").style.display = "none";
+		}
 	}
 	
 	if (email.value.match(pattMail)) {
 		email.style.border  = "thick solid "+ colorCorrect;
+		document.getElementById("emailFormHinweis").style.display = "none";
 		checked++;
 	} else {
 		email.style.border  = "thick solid "+ colorWrong;
+		if ($("#regEmail").is(':focus')) {
+			document.getElementById("emailFormHinweis").style.display = "inline";
+		} else {
+			document.getElementById("emailFormHinweis").style.display = "none";
+		}
 	}
 	
-	if (checked == 5) {
+	if (checked == 3) {
 		document.getElementById("registerLogo").style.display = "inline";
 	} else {
 		document.getElementById("registerLogo").style.display = "none";

@@ -438,10 +438,27 @@ button:hover {
 }
 
 #regForm p {
-    margin: 0;
-    float: right;
-    size: 20px;
+    display: inline;
 }
+
+#regForm label {
+    margin: 0;
+    width: 20%;
+    margin: auto;
+}
+
+#regForm select {
+	width: 100%;
+	height: 40px;
+	font-size: 30px;
+}
+
+#formFrau, #formMann
+{
+	width: 20px;
+}
+
+
 
 #sliderDiv p, #regDiv p {
 	margin: 5px;
