@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<title>M129</title>
+		
+		<meta charset="utf-8"> 
+		<!--
+		<link rel="stylesheet" media="screen and (min-device-width: 1100px)" href="style/main.css" />
+		<link rel="stylesheet" media="screen and (max-device-width: 1100px)" href="style/mobileMain.css" />
+		-->
+		<link rel="stylesheet" href="css/main.css" />
+		<link rel="stylesheet" href="css/mobileStyle.css" />
+		<link rel="stylesheet" href="css/tabletStyle.css" />
+		
+		<link rel="icon" href="bilder/logo.png">
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		
+		
+		<script>
+				(function loadJS(){
+			  		function load(script) {
+			    document.write('<'+'script src="js/'+script+'" type="text/javascript"><' + '/script>');
+			  }
+				  
+
+			  load("openSearch.js");
+			  load("openLogin.js");
+			  load("openNavbar.js");
+			  load("scrollTop.js");
+			  load("login.js");
+			  load("slider.js");
+			  load("suchen.js");
+			  load("slideshow.js");
+			  
+			  
+			  
+			})();
+		</script>
+		
+		
+
+		
+	</head>
+	<body onload="setTextFromAtt(); setShit(); initializeSlideShow();" >
+	
+			<div id="header_navigation">		
+				<nav>
+					<ul>
+						<li id="navigationLogo"><img src="bilder/navlogo.png"  onclick="NavBaropen()" alt="öffne deine Navbar"></li>
+						<li id="navText1"><a href="index.html">Home</a></li>
+						<li id="navText2"><a href="blog.html">Blog</a></li>
+						<li id="navText3"><a href="registrierung.html">Registrierung</a></li>
+						<li id="navText4"><a href="impressum.html">Impressum</a></li>
+						<li id="navbarIconLogin" data-triggered="true" ><img src="bilder/login.png" id="navbarIconLoginImg"   onclick="openLogin()" alt="öffne deine Navbar"></li>
+						<li id="navbarIconSuchen" data-triggered="true"><img src="bilder/suchen.png" id="navbarIconSuchenImg"  onclick="openSearch()" alt="öffne deine Navbar"></li>
+						<li id="navbarIconNavbar" data-triggered="true"><img src="bilder/navlogo.png" id="navbarIconNavbarImg"  onclick="openNavbar()" alt="öffne deine Navbar"></li>
+					</ul>
+				</nav>
+						
+				<div id="loginDiv">			
+					<form name="loginBox" id="loginBox" target="#here" method="post">
+						<img src="bilder/register.png"   onclick="openRegister()" alt="öffne deine Navbar">
+						<img src="bilder/navlogo2.png"   id="login_laden" onclick="login()" alt="öffne deine Navbar">
+						<input id="inputFormLoginID" type="text" placeholder="Dein Name" name="firstname">
+						<input id="inputFormLoginPW" type="password" placeholder="Dein Passwort" name="firstname">
+						<input id="loginSubmit" type="submit" />	
+					</form>		
+					
+				</div>
+				
+				<div id="searchDiv">			
+					<form name="suchBox" id="suchBox" target="#here" method="post">
+						<img src="bilder/suchen.png"  onclick="openSearch()" alt="öffne deine Navbar">
+						<input id="inputFormSearch" type="text" placeholder="Dein Suchbegriff" name="firstname">
+						<input id="searchSubmit" type="submit" />				
+					</form>		
+				</div>
+			</div>
+			
+			
+	<div id="content">
+		
+		<h1>Ein Blog ist auch Content</h1>
+		
+		<div id="sliderDiv">
+			<p>Size</p>
+			<input type="range" min="12" max="100" value="100" class="slider" oninput="changedValue()" id="sizeKacheln">
+			<p>Suchen</p>
+			<input id="inputFormSearchGruppe" type="text" placeholder="Dein Suchbegriff" onchange="suchen()" name="firstname">		
+	
+		</div>
+		
+	
+		
+		<div id="kachelContent">
+			<!-- Eine Kachel Start -->
+			<div class="kachel">
+				<div class="kachelHeader">
+				<h2 class="kachelH2" data-abkuerzung="Bg1" data-vollerName="">Blog eintrag Uno</h2>
+					<div class="kachelRight kachelIcons">
+					</div>
+				</div>
+				<div class="kachelContent">
+					<p class="kachelBeschreibung" data-vollerText="">Schreiben einer Beschreibung ist eine super Sache! Jetzt habe ich aber Genug und will noch schnell einen Umbruch testen.</p>
+					<div class="kachelRight kachelIcons">
+						<img class="hauptBild" src="bilder/blogBilder/das.jpg" alt="DE">
+						<img class="nebenBild" src="bilder/blogBilder/jenes.jpg" alt="DE">
+						
+						<img class="nebenBild" src="bilder/blogBilder/test.jpg" alt="DE">
+						<img class="nebenBild" src="bilder/blogBilder/test2.jpg" alt="DE">
+					</div>
+				</div>
+				<div class="kachelInfo">
+					<table class="kachelTable">
+						<tr id="kachelInfo1">
+						    <td>Autor</td>
+						    <td>Mathias Schmid</td> 
+	  					</tr>
+	  					<tr id="kachelInfo2">
+						    <td>Datum</td>
+						    <td>22.02.2018</td> 
+	  					</tr>
+					</table>
+					<div class="kachelRight">
+						<button onclick="showMoreInfo()" type="button" class="moreInfoButton">zeige Mehr Infos</button>
+					</div>
+				</div>
+			</div>
+			<!-- Eine Kachel Ende -->
+			
+						<!-- Eine Kachel Start -->
+			<div class="kachel">
+				<div class="kachelHeader">
+				<h2 class="kachelH2" data-abkuerzung="Bg1" data-vollerName="">Blog eintrag Uno</h2>
+					<div class="kachelRight kachelIcons">
+					</div>
+				</div>
+				<div class="kachelContent">
+					<p class="kachelBeschreibung" data-vollerText="">Schreiben einer Beschreibung ist eine super Sache! Jetzt habe ich aber Genug und will noch schnell einen Umbruch testen.</p>
+					<div class="kachelRight kachelIcons">
+						<img class="hauptBild" src="bilder/blogBilder/bild1.jpeg" alt="DE">
+						<img class="nebenBild" src="bilder/blogBilder/bild2.jpg" alt="DE">
+						<img class="nebenBild" src="bilder/blogBilder/bild3.jpg" alt="DE">
+						<img class="nebenBild" src="bilder/blogBilder/bild4.jpg" alt="DE">
+						<img class="nebenBild" src="bilder/blogBilder/test.jpg" alt="DE">
+						<img class="nebenBild" src="bilder/blogBilder/test2.jpg" alt="DE">
+						
+					</div>
+				</div>
+				<div class="kachelInfo">
+					<table class="kachelTable">
+						<tr id="kachelInfo1">
+						    <td>Autor</td>
+						    <td>Mathias Schmid</td> 
+	  					</tr>
+	  					<tr id="kachelInfo2">
+						    <td>Datum</td>
+						    <td>22.02.2018</td> 
+	  					</tr>
+					</table>
+					<div class="kachelRight">
+						<button onclick="showMoreInfo()" type="button" class="moreInfoButton">zeige Mehr Infos</button>
+					</div>
+				</div>
+			</div>
+			<!-- Eine Kachel Ende -->
+			
+						<!-- Eine Kachel Start -->
+			<div class="kachel">
+				<div class="kachelHeader">
+				<h2 class="kachelH2" data-abkuerzung="Bg1" data-vollerName="">Blog eintrag Uno</h2>
+					<div class="kachelRight kachelIcons">
+					</div>
+				</div>
+				<div class="kachelContent">
+					<p class="kachelBeschreibung" data-vollerText="">Schreiben einer Beschreibung ist eine super Sache! Jetzt habe ich aber Genug und will noch schnell einen Umbruch testen.</p>
+					<div class="kachelRight kachelIcons">
+						<img class="hauptBild" src="bilder/blogBilder/bild1.jpeg" alt="DE">
+						<img class="nebenBild" src="bilder/blogBilder/bild2.jpg" alt="DE">
+						<img class="nebenBild" src="bilder/blogBilder/bild3.jpg" alt="DE">
+						<img class="nebenBild" src="bilder/blogBilder/bild4.jpg" alt="DE">
+						<img class="nebenBild" src="bilder/blogBilder/test.jpg" alt="DE">
+						<img class="nebenBild" src="bilder/blogBilder/test2.jpg" alt="DE">
+						<img class="nebenBild" src="bilder/blogBilder/bild3.jpg" alt="DE">
+						<img class="nebenBild" src="bilder/blogBilder/bild4.jpg" alt="DE">
+						<img class="nebenBild" src="bilder/blogBilder/test.jpg" alt="DE">
+						
+					</div>
+				</div>
+				<div class="kachelInfo">
+					<table class="kachelTable">
+						<tr id="kachelInfo1">
+						    <td>Autor</td>
+						    <td>Mathias Schmid</td> 
+	  					</tr>
+	  					<tr id="kachelInfo2">
+						    <td>Datum</td>
+						    <td>22.02.2018</td> 
+	  					</tr>
+					</table>
+					<div class="kachelRight">
+						<button onclick="showMoreInfo()" type="button" class="moreInfoButton">zeige Mehr Infos</button>
+					</div>
+				</div>
+			</div>
+			<!-- Eine Kachel Ende -->
+			
+						<!-- Eine Kachel Start -->
+			<div class="kachel">
+				<div class="kachelHeader">
+				<h2 class="kachelH2" data-abkuerzung="Bg1" data-vollerName="">Blog eintrag Uno</h2>
+					<div class="kachelRight kachelIcons">
+					</div>
+				</div>
+				<div class="kachelContent">
+					<p class="kachelBeschreibung" data-vollerText="">Schreiben einer Beschreibung ist eine super Sache! Jetzt habe ich aber Genug und will noch schnell einen Umbruch testen.</p>
+					<div class="kachelRight kachelIcons">
+						<img class="hauptBild" src="bilder/blogBilder/bild3.jpg" alt="DE">
+						<img class="nebenBild" src="bilder/blogBilder/bild4.jpg" alt="DE">
+						<img class="nebenBild" src="bilder/blogBilder/test.jpg" alt="DE">
+					</div>
+				</div>
+				<div class="kachelInfo">
+					<table class="kachelTable">
+						<tr id="kachelInfo1">
+						    <td>Autor</td>
+						    <td>Mathias Schmid</td> 
+	  					</tr>
+	  					<tr id="kachelInfo2">
+						    <td>Datum</td>
+						    <td>22.02.2018</td> 
+	  					</tr>
+					</table>
+					<div class="kachelRight">
+						<button onclick="showMoreInfo()" type="button" class="moreInfoButton">zeige Mehr Infos</button>
+					</div>
+				</div>
+			</div>
+			<!-- Eine Kachel Ende -->
+			
+						<!-- Eine Kachel Start -->
+			<div class="kachel">
+				<div class="kachelHeader">
+				<h2 class="kachelH2" data-abkuerzung="Bg1" data-vollerName="">Blog eintrag Uno</h2>
+					<div class="kachelRight kachelIcons">
+					</div>
+				</div>
+				<div class="kachelContent">
+					<p class="kachelBeschreibung" data-vollerText="">When one of the techniques described above is used, it is sometimes supplemented with the HTML5 required attribute and/or the aria-required attribute. However, this should be done judiciously to avoid overloading screen reader users with unnecessary repetition of information.</p>
+					<div class="kachelRight kachelIcons">
+						<img class="hauptBild" src="bilder/blogBilder/bild1.jpeg" alt="DE">
+						<img class="nebenBild" src="bilder/blogBilder/test.jpg" alt="DE">
+					</div>
+				</div>
+				<div class="kachelInfo">
+					<table class="kachelTable">
+						<tr id="kachelInfo1">
+						    <td>Autor</td>
+						    <td>Mathias Schmid</td> 
+	  					</tr>
+	  					<tr id="kachelInfo2">
+						    <td>Datum</td>
+						    <td>22.02.2018</td> 
+	  					</tr>
+					</table>
+					<div class="kachelRight">
+						<button onclick="showMoreInfo()" type="button" class="moreInfoButton">zeige Mehr Infos</button>
+					</div>
+				</div>
+			</div>
+			<!-- Eine Kachel Ende -->
+			
+						<!-- Eine Kachel Start -->
+			<div class="kachel">
+				<div class="kachelHeader">
+				<h2 class="kachelH2" data-abkuerzung="Bg1" data-vollerName="">Blog eintrag Uno</h2>
+					<div class="kachelRight kachelIcons">
+					</div>
+				</div>
+				<div class="kachelContent">
+					<p class="kachelBeschreibung" data-vollerText="">aria-required is also an attribute of the input or select element, however with ARIA it is necessary to indicate whether the value is “true” (required). You can use aria-required=”false” for inputs where a response is not required, however this is not essential since this is the assumed default value if aria-required is not present. For example:</p>
+					<div class="kachelRight kachelIcons">
+						<img class="hauptBild" src="bilder/blogBilder/bild3.jpg" alt="DE">
+						<img class="nebenBild" src="bilder/blogBilder/bild4.jpg" alt="DE">
+						
+						<img class="nebenBild" src="bilder/blogBilder/test.jpg" alt="DE">
+					</div>
+				</div>
+				<div class="kachelInfo">
+					<table class="kachelTable">
+						<tr id="kachelInfo1">
+						    <td>Autor</td>
+						    <td>Mathias Schmid</td> 
+	  					</tr>
+	  					<tr id="kachelInfo2">
+						    <td>Datum</td>
+						    <td>22.02.2018</td> 
+	  					</tr>
+					</table>
+					<div class="kachelRight">
+						<button onclick="showMoreInfo()" type="button" class="moreInfoButton">zeige Mehr Infos</button>
+					</div>
+				</div>
+			</div>
+			<!-- Eine Kachel Ende -->
+
+		</div>
+	</div>
+	
+	<div id="footer">
+		<div id="whiteLine"></div>
+		<img src="bilder/logo.png" id="logo" alt="öffne deine Navbar">
+
+		<div id="footer-links">
+		<br>
+			<a  href="index.html"><img  class="footerLogos" src="bilder/home.png" id="homeLogo" alt="zum Home"></a><a href="index.html"><span>zurück zu Home</span></a> <br> <!-- Cause Lazy und höhe von footer ist eh immer gleich :D--><br>
+			<img class="footerLogos" src="bilder/pfeil.png" id="pfeilLogo" alt="zum Home" onclick="topFunction()"><a href="gruppensuche.html#" onclick="topFunction()"><span>zum Anfang der Seite</span></a>
+		</div>
+		<br>
+		<div id="adress">
+			Written by <a href="mailto:Mathias.Schmid@ict-campus.com">Mathias Schmid</a>.<br> 
+			Visit us at:<br>
+			Engehaldenstrasse 26<br>
+			3012 Bern<br>
+			Switzerland
+		</div>	
+	</div>
+	</body>
+</html>

@@ -1,14 +1,13 @@
 var i = 0;
 var colorCorrect =  "rgba(0, 255, 0, .3)";
 var colorWrong = "rgba(255, 0, 0, .3)";
-
+var pattPW = "^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$_!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$";
 
 
 function checkRegex() {
 	var name = document.getElementById("inputFormLoginID").value;
 	var pw = document.getElementById("inputFormLoginPW").value;
 	var pattName = "[a-zA-Z]{5}"
-	var pattPW = "[a-zA-Z]{5}"
 	var checked = 0;
 	if (name.match(pattName)) {
 		document.getElementById("inputFormLoginID").style.border  = "thick solid "+colorCorrect;
@@ -25,6 +24,8 @@ function checkRegex() {
 	}
 	if (checked == 2) {
 		document.getElementById("login_laden").style.display = "inline";
+	} else {
+		document.getElementById("login_laden").style.display = "none";
 	}
 }
 

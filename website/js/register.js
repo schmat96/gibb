@@ -7,9 +7,9 @@ function checkRegister() {
 	var pw1 = document.getElementById("regPasswort1");
 	var pw2 = document.getElementById("regPasswort2");
 	var email = document.getElementById("regEmail");
-	var pattName = "[a-zA-Z]{5}"
-	var pattPW = "[a-zA-Z]{5}"
-	var pattMail = "[a-zA-Z0-9]+@[a-zA-Z0-9]+\\.[a-zA-Z0-9]{2}"
+	var pattName = "[a-zA-Z]{5}";
+
+	var pattMail = "[a-zA-Z0-9_]+@[a-zA-Z0-9]+\\.[a-zA-Z0-9]{2}";
 	var checked = 0;
 	
 	
