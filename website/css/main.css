@@ -165,8 +165,12 @@ li a, li h3, li p {
 	background: #333333;
 }
 
-#loginDiv img:hover, #searchDiv img:hover {
+#loginDiv img:hover, #searchDiv img:hover, #registerLogo:hover {
 	background-color: #ffab00;
+}
+
+#registerLogo {
+	margin-top: 10px;
 }
 
 #navbarIconNavbar {
@@ -264,6 +268,7 @@ li a, li h3, li p {
 	display: none;
 }
 
+
 #filter button {
 	margin-left: auto;
 }
@@ -340,7 +345,8 @@ button:hover {
 
 
 .kachel img {
-	width: 40px;
+	width: 90%;
+	margin: 0 5% 0 5%;
 }
 
 
@@ -445,6 +451,11 @@ button:hover {
     margin: 0;
     width: 20%;
     margin: auto;
+    font-weight: bold;
+}
+
+#regForm label span {
+    font-size: 0.7em;
 }
 
 #regForm select {

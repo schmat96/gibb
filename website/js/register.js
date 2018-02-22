@@ -1,26 +1,6 @@
 
-function loadJqueryThings() {
-	$( "#emailForm" ).hover(
-			  function() {
-				  $( "#regEmail" ).focus();
-			  }
-	);
-	$( "#passwort1Form" ).hover(
-			  function() {
-				  $( "#regPasswort1" ).focus();
-			  }
-	);
-	$( "#passwort2Form" ).hover(
-			  function() {
-				  $( "#regPasswort2" ).focus();
-			  }
-	);
-	$( "#passwort2Form" ).hover(
-			  function() {
-				  $( "#regPasswort2" ).focus();
-			  }
-	);
-}
+
+
 
 
 function checkRegister() {
@@ -32,8 +12,7 @@ function checkRegister() {
 	var pattMail = "[a-zA-Z0-9]+@[a-zA-Z0-9]+\\.[a-zA-Z0-9]{2}"
 	var checked = 0;
 	
-	var colorCorrect =  "rgba(0, 255, 0, .3)";
-	var colorWrong = "rgba(255, 0, 0, .3)";
+	
 	
 	if (pw1.value.match(pattName)) {
 		pw1.style.border  = "thick solid "+ colorCorrect;
@@ -42,6 +21,7 @@ function checkRegister() {
 	} else {
 		pw1.style.border  = "thick solid "+ colorWrong;
 		if ($("#regPasswort1").is(':focus')) {
+			document.getElementById("passwort1FormHinweis").innerHTML = " Bitte gib ein gültiges PW ein. (Regex: "+pattPW+")";
 			document.getElementById("passwort1FormHinweis").style.display = "inline";
 		} else {
 			document.getElementById("passwort1FormHinweis").style.display = "none";
@@ -55,6 +35,7 @@ function checkRegister() {
 	} else {
 		pw2.style.border  = "thick solid "+ colorWrong;
 		if ($("#regPasswort2").is(':focus')) {
+			document.getElementById("passwort2FormHinweis").innerHTML = " Das stimmt leider noch nicht überein";
 			document.getElementById("passwort2FormHinweis").style.display = "inline";
 		} else {
 			document.getElementById("passwort2FormHinweis").style.display = "none";
@@ -68,15 +49,39 @@ function checkRegister() {
 	} else {
 		email.style.border  = "thick solid "+ colorWrong;
 		if ($("#regEmail").is(':focus')) {
+			document.getElementById("emailFormHinweis").innerHTML = " Bitte gib eine gültige EMail ein. (Regex: "+pattMail+")";
 			document.getElementById("emailFormHinweis").style.display = "inline";
 		} else {
 			document.getElementById("emailFormHinweis").style.display = "none";
 		}
 	}
 	
-	if (checked == 3) {
-		document.getElementById("registerLogo").style.display = "inline";
+	var checkedCheckbox = 0;
+	
+	if($("#FormFussball").is(':checked')) {
+		checkedCheckbox++;
+	}	
+	
+	if($("#FormGolf").is(':checked')) {
+		checkedCheckbox++;
+	}
+	
+	if($("#FormTennis").is(':checked')) {
+		checkedCheckbox++;
+	}
+
+	if (checkedCheckbox>=1) {
+		checked++;
+		document.getElementById("selectFormHinweis").style.display = "none";
 	} else {
+		document.getElementById("selectFormHinweis").style.display = "inline";
+	}
+	
+	if (checked == 4) {
+		document.getElementById("registerLogo").style.display = "inline";
+		document.getElementById("registerButtonHinweis").style.display = "none";
+	} else {
+		document.getElementById("registerButtonHinweis").style.display = "inline";
 		document.getElementById("registerLogo").style.display = "none";
 	}
 	

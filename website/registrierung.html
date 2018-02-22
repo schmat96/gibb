@@ -32,7 +32,6 @@
 			  load("scrollTop.js");
 			  load("login.js");
 			  load("register.js");
-			  
 			})();
 		</script>
 		
@@ -40,19 +39,19 @@
 
 		
 	</head>
-	<body onload="loadJqueryThings()">
+	<body  onload="" >
 	
 			<div id="header_navigation">		
 				<nav>
 					<ul>
-						<li id="navigationLogo"><img src="bilder/navlogo.png"  onclick="NavBaropen()" alt="öffne deine Navbar"></li>
+						<li id="navigationLogo"><img src="bilder/navlogo.png"  onclick="NavBaropen()" alt="�ffne deine Navbar"></li>
 						<li id="navText1"><a href="index.html">Home</a></li>
-						<li id="navText2"><a href="gruppensuche.html">Gruppensuche</a></li>
-						<li id="navText3"><a href="profil.html">Profil</a></li>
+						<li id="navText2"><a href="blog.html">Blog</a></li>
+						<li id="navText3"><a href="registrierung.html">Registrierung</a></li>
 						<li id="navText4"><a href="impressum.html">Impressum</a></li>
-						<li id="navbarIconLogin" data-triggered="true" ><img src="bilder/login.png" id="navbarIconLoginImg"   onclick="openLogin()" alt="öffne deine Navbar"></li>
-						<li id="navbarIconSuchen" data-triggered="true"><img src="bilder/suchen.png" id="navbarIconSuchenImg"  onclick="openSearch()" alt="öffne deine Navbar"></li>
-						<li id="navbarIconNavbar" data-triggered="true"><img src="bilder/navlogo.png" id="navbarIconNavbarImg"  onclick="openNavbar()" alt="öffne deine Navbar"></li>
+						<li id="navbarIconLogin" data-triggered="true" ><img src="bilder/login.png" id="navbarIconLoginImg"   onclick="openLogin()" alt="�ffne deine Navbar"></li>
+						<li id="navbarIconSuchen" data-triggered="true"><img src="bilder/suchen.png" id="navbarIconSuchenImg"  onclick="openSearch()" alt="�ffne deine Navbar"></li>
+						<li id="navbarIconNavbar" data-triggered="true"><img src="bilder/navlogo.png" id="navbarIconNavbarImg"  onclick="openNavbar()" alt="�ffne deine Navbar"></li>
 					</ul>
 				</nav>
 						
@@ -60,8 +59,8 @@
 					<form name="loginBox" id="loginBox" target="#here" method="post">
 						<img src="bilder/register.png"   onclick="openRegister()" alt="�ffne deine Navbar">
 						<img src="bilder/navlogo2.png"   id="login_laden" onclick="login()" alt="�ffne deine Navbar">
-						<input id="inputFormLoginID" type="text" placeholder="Dein Name" name="firstname">
-						<input id="inputFormLoginPW" type="password" placeholder="Dein Passwort" name="firstname">
+						<input id="inputFormLoginID" type="text" oninput="checkRegex()" placeholder="Dein Name" name="firstname">
+						<input id="inputFormLoginPW" type="password" oninput="checkRegex()" placeholder="Dein Passwort" name="firstname">
 						<input id="loginSubmit" type="submit" />	
 					</form>		
 					
@@ -80,33 +79,29 @@
 	<div id="content">		
 		<h1>Registrierung</h1>	
 		<form name="" id="regForm" target="#here" method="post">		
-				<p id="emailForm">Email</p>
-				<p id="emailFormHinweis"> Gib eine gültige Email ein! </p>
-				<input id="regEmail" type="text" placeholder="E-Mail" oninput="checkRegister()" name="firstname">		
-				<p id="passwort1Form">Passwort</p>
-				<p id="passwort1FormHinweis"> Gib mehr als 5 Zeichen ein </p>
-				<input id="regPasswort1" type="password" placeholder="Passwort" oninput="checkRegister()" name="firstname">		
-				<p id="passwort2Form">Passwort wiederholen</p>
-				<p id="passwort2FormHinweis"> 2x dasselbe Passwort </p>
-				<input id="regPasswort2" type="password" placeholder="Passwort wiederholen" oninput="checkRegister()" name="firstname">	
+				<label for="regEmail">Email<span id="emailFormHinweis"></span></label>
+				<input id="regEmail" type="text" placeholder="E-Mail" oninput="checkRegister()" onclick="checkRegister()" name="firstname" aria-required="true">		
+				<label for="regPasswort1">Passwort<span id="passwort1FormHinweis"> </span></label>
+				<input id="regPasswort1" type="password" placeholder="Passwort" oninput="checkRegister()" onclick="checkRegister()" name="firstname">		
+				<label for="regPasswort2">Passwort wiederholen<span id="passwort2FormHinweis"> </span></label>
+				<input id="regPasswort2" type="password" placeholder="Passwort wiederholen" oninput="checkRegister()" onclick="checkRegister()" name="firstname">	
 			    <label id="mc" for="formFrau">Weiblich
-			    <input type="radio" id="formFrau" name="Zahlmethode" value="M">
+			    <input type="radio" id="formFrau" name="Zahlmethode" onclick="checkRegister()" value="M">
 			    </label> 
 			    <label id="asd" for="formMann">Männlich
-			    <input type="radio" id="formMann" name="Zahlmethode" value="W">
+			    <input type="radio" id="formMann" name="Zahlmethode" onclick="checkRegister()" value="W">
 			    </label>
 			    
-			     <p>Sportarten</p>
-			     <p id="selectFormHinweis"> Wähle mindestens etwas aus </p>
+			      <label for="selectFormHinweis">Sportarten <span id="selectFormHinweis"> Wähle mindestens etwas aus</span></label>
 				  <fieldset>
-				   	<label for="mc">Fussball
-				    <input type="checkbox" id="FormFussball" name="Sportarten" value="Fussball">
+				   	<label for="FormFussball">Fussball
+				    <input type="checkbox" id="FormFussball" name="Sportarten" value="Fussball" onclick="checkRegister()">
 				    </label> 
-				    <label for="mc">Golf
-				    <input type="checkbox" id="FormGolf" name="Sportarten" value="Golf">
+				    <label for="FormGolf">Golf
+				    <input type="checkbox" id="FormGolf" name="Sportarten" value="Golf" onclick="checkRegister()">
 				    </label> 
-				    <label for="mc">Tennis
-				    <input type="checkbox" id="FormTennis" name="Sportarten" value="Tennis">
+				    <label for="FormTennis">Tennis
+				    <input type="checkbox" id="FormTennis" name="Sportarten" value="Tennis" onclick="checkRegister()">
 				    </label> 
 				  </fieldset>
 				  
@@ -117,11 +112,8 @@
 					  <option value="fiat" selected>Fiat</option>
 					  <option value="audi">Audi</option>
 					</select>
-					
-				
-				
 			    
-			    <p>Login Button erscheint wenn alles korrekt ist</p>
+			    <p id="registerButtonHinweis">Register Button erscheint wenn alles korrekt ist</p>
 				<img src="bilder/register.png"   id="registerLogo" onclick="register()" alt="Öffne deine Navbar">	
 		</form>
 		<p id="Reginformation"></p>

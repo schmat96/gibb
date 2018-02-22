@@ -22,10 +22,6 @@
 			    document.write('<'+'script src="js/'+script+'" type="text/javascript"><' + '/script>');
 			  }
 			  		
-
-				  function loadCSS(script) {
-				    document.write('<link rel="stylesheet" href="http://ict-campus.net/43eKGM/schmidmath/css/'+script+'" />');
-				  }
 				  
 
 			  load("openSearch.js");
@@ -33,7 +29,6 @@
 			  load("openNavbar.js");
 			  load("scrollTop.js");
 			  load("login.js");
-			  load("refreshOnResize.js");
 			  load("sound.js");
 			})();
 		</script>
@@ -42,15 +37,15 @@
 
 		
 	</head>
-	<body  onload="initializeSound()" >
+	<body onload="setShit()">
 	
 			<div id="header_navigation">		
 				<nav>
 					<ul>
 						<li id="navigationLogo"><img src="bilder/navlogo.png"  onclick="NavBaropen()" alt="�ffne deine Navbar"></li>
 						<li id="navText1"><a href="index.html">Home</a></li>
-						<li id="navText2"><a href="gruppensuche.html">Gruppensuche</a></li>
-						<li id="navText3"><a href="profil.html">Profil</a></li>
+						<li id="navText2"><a href="blog.html">Blog</a></li>
+						<li id="navText3"><a href="registrierung.html">Registrierung</a></li>
 						<li id="navText4"><a href="impressum.html">Impressum</a></li>
 						<li id="navbarIconLogin" data-triggered="true" ><img src="bilder/login.png" id="navbarIconLoginImg"   onclick="openLogin()" alt="�ffne deine Navbar"></li>
 						<li id="navbarIconSuchen" data-triggered="true"><img src="bilder/suchen.png" id="navbarIconSuchenImg"  onclick="openSearch()" alt="�ffne deine Navbar"></li>
@@ -82,14 +77,13 @@
 	<div id="content">
 	
 		<h2> Quick Navigation </h2>
-		
+	
 		
 		<ul>
 			<li><a href="index.html">Home</a><img src="bilder/rennwagen.png" alt="�ffne deine Navbar"></li>
-			<li><a href="gruppensuche.html">Gruppensuche</a><img src="bilder/rennwagen.png" alt="�ffne deine Navbar"></li>
-			<li><a href="profil.html">Profil</a><img src="bilder/rennwagen.png" alt="�ffne deine Navbar"></li>
+			<li><a href="blog.html">Blog</a><img src="bilder/rennwagen.png" alt="�ffne deine Navbar"></li>
+			<li><a href="registrierung.html">Registrierung</a><img src="bilder/rennwagen.png" alt="�ffne deine Navbar"></li>
 			<li><a href="impressum.html">Impressum</a><img src="bilder/rennwagen.png" alt="�ffne deine Navbar"></li>
-			<li><a href="filterEinstellungen.html">Direkt zur Gruppensuche mit Filtereinstellungen</a><img src="bilder/rennwagen.png" alt="�ffne deine Navbar"></li>
 		</ul>
 	</div>
 	

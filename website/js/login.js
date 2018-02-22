@@ -1,4 +1,8 @@
 var i = 0;
+var colorCorrect =  "rgba(0, 255, 0, .3)";
+var colorWrong = "rgba(255, 0, 0, .3)";
+
+
 
 function checkRegex() {
 	var name = document.getElementById("inputFormLoginID").value;
@@ -7,21 +11,26 @@ function checkRegex() {
 	var pattPW = "[a-zA-Z]{5}"
 	var checked = 0;
 	if (name.match(pattName)) {
-		document.getElementById("inputFormLoginID").style.border  = "thick solid #00C800";
+		document.getElementById("inputFormLoginID").style.border  = "thick solid "+colorCorrect;
 		checked++;
 	} else {
-		document.getElementById("inputFormLoginID").style.border  = "thick solid #C80000";
+		document.getElementById("inputFormLoginID").style.border  = "thick solid "+colorWrong;
 	}
 	if (pw.match(pattPW)) {
-		document.getElementById("inputFormLoginPW").style.border  = "thick solid #00C800";
+		document.getElementById("inputFormLoginPW").style.border  = "thick solid "+colorCorrect;
 		
 		checked++;
 	} else {
-		document.getElementById("inputFormLoginPW").style.border  = "thick solid #C80000";
+		document.getElementById("inputFormLoginPW").style.border  = "thick solid "+colorWrong;
 	}
 	if (checked == 2) {
 		document.getElementById("login_laden").style.display = "inline";
 	}
+}
+
+function setShit() {
+	document.getElementById("inputFormLoginID").style.border  = "thick solid "+colorWrong;
+	document.getElementById("inputFormLoginPW").style.border  = "thick solid "+colorWrong;
 }
 
 function login() {
