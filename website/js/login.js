@@ -1,8 +1,7 @@
 var i = 0;
 var colorCorrect =  "rgba(0, 255, 0, .3)";
-var colorWrong = "rgba(255, 0, 0, .3)";
-var pattPW = "^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$_!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$";
-
+var colorWrong = "rgba(255, 50, 0, .5)";
+var pattPW = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$";
 
 function checkRegex() {
 	var name = document.getElementById("inputFormLoginID").value;

@@ -12,7 +12,7 @@
 		<link rel="stylesheet" href="css/mobileStyle.css" />
 		<link rel="stylesheet" href="css/tabletStyle.css" />
 		
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 		<link rel="icon" href="bilder/logo.png">
 		
@@ -39,7 +39,7 @@
 
 		
 	</head>
-	<body  onload="" >
+	<body  onload="initializeRegister();" >
 	
 			<div id="header_navigation">		
 				<nav>
@@ -113,7 +113,8 @@
 					  <option value="audi">Audi</option>
 					</select>
 			    
-			    <p id="registerButtonHinweis">Registrier Button erscheint wenn alles korrekt ist</p>
+			    <p id="registerButtonHinweis" onclick="showHelp()"><span>Registrier Button erscheint wenn alles korrekt ist</span></p>
+			    <p id="helpText"></p>
 				<img src="bilder/register.png"   id="registerLogo" onclick="register()" alt="Öffne deine Navbar">	
 		</form>
 		<p id="Reginformation"></p>
@@ -121,7 +122,7 @@
 	
 	<div id="footer">
 		<div id="whiteLine"></div>
-		<img src="bilder/logo.png" id="logo" alt="�ffne deine Navbar">
+		<img src="bilder/logo.png" id="logo" alt="Öffne deine Navbar">
 
 		<div id="footer-links">
 		<br>

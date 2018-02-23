@@ -19,7 +19,7 @@ function initializeSlideShow() {
 		diashow[i] = true;
 	});
 	bilderAnzahl[i] = j;
-	//animationLoginBar();
+	//slideShowNextPicture();
 	
 }
 
@@ -60,7 +60,7 @@ function changePicture(name){
 }
 
 
-function animationLoginBar() {
+function slideShowNextPicture() {
 	setTimeout(function () {
 		var i = 0;
 		bilderAnzahl.forEach(function(entry) {
@@ -73,7 +73,7 @@ function animationLoginBar() {
 			}
 			i++;
 		});
-		animationLoginBar();	
+		slideShowNextPicture();	
 	}, 3000)
 	
 
