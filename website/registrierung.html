@@ -58,7 +58,7 @@
 				<div id="loginDiv">			
 					<form name="loginBox" id="loginBox" target="#here" method="post">
 						<img src="bilder/register.png"   onclick="openRegister()" alt="�ffne deine Navbar">
-						<img src="bilder/navlogo2.png"   id="login_laden" onclick="login()" alt="�ffne deine Navbar">
+						<img src="bilder/navlogo2.png"   class="disabled" id="login_laden" onclick="login()" alt="">
 						<input id="inputFormLoginID" type="text" oninput="checkRegex()" placeholder="Dein Name" name="firstname">
 						<input id="inputFormLoginPW" type="password" oninput="checkRegex()" placeholder="Dein Passwort" name="firstname">
 						<input id="loginSubmit" type="submit" />	
@@ -112,10 +112,10 @@
 					  <option value="fiat" selected>Fiat</option>
 					  <option value="audi">Audi</option>
 					</select>
-			    
-			    <p id="registerButtonHinweis" onclick="showHelp()"><span>Registrier Button erscheint wenn alles korrekt ist</span></p>
+			    <img src="bilder/register.png" id="registerLogo" class="disabled" onclick="showHelp()" alt="Öffne deine Navbar" >
+			  
 			    <p id="helpText"></p>
-				<img src="bilder/register.png"   id="registerLogo" onclick="register()" alt="Öffne deine Navbar">	
+				
 		</form>
 		<p id="Reginformation"></p>
 	</div>

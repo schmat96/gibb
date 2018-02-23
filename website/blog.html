@@ -64,7 +64,7 @@
 				<div id="loginDiv">			
 					<form name="loginBox" id="loginBox" target="#here" method="post">
 						<img src="bilder/register.png"   onclick="openRegister()" alt="öffne deine Navbar">
-						<img src="bilder/navlogo2.png"   id="login_laden" onclick="login()" alt="öffne deine Navbar">
+						<img src="bilder/navlogo2.png"   class="disabled" id="login_laden" onclick="login()" alt="">
 						<input id="inputFormLoginID" type="text" placeholder="Dein Name" name="firstname">
 						<input id="inputFormLoginPW" type="password" placeholder="Dein Passwort" name="firstname">
 						<input id="loginSubmit" type="submit" />	
@@ -90,8 +90,9 @@
 			<p>Size</p>
 			<input type="range" min="12" max="100" value="100" class="slider" oninput="changedValue()" id="sizeKacheln">
 			<p>Suchen</p>
-			<input id="inputFormSearchGruppe" type="text" placeholder="Dein Suchbegriff" onchange="suchen()" name="firstname">		
-	
+			<input id="inputFormSearchGruppe" type="text" placeholder="Dein Suchbegriff" onchange="suchen()" name="firstname">	
+			<p>Diashow set All</p>	
+			<img id="slideShowPlay" src="bilder/pauseSlideshow.png" onclick="setDiashow(false)" alt="DE">
 		</div>
 		
 	

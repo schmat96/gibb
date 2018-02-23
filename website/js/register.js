@@ -14,7 +14,6 @@ function initializeRegister() {
 	document.getElementById("regEmail").style.border  = "thick solid "+ colorWrong;
 	$("#helpText").css('color', colorWrong);
 	$("#helpText").css('font-size', "0.7em");
-	showHelp();
 
 }
 
@@ -72,6 +71,7 @@ function showHelp() {
 }
 
 function checkRegister() {
+	document.getElementById("helpText").innerHTML = "";
 	var pw1 = document.getElementById("regPasswort1");
 	var pw2 = document.getElementById("regPasswort2");
 	var email = document.getElementById("regEmail");
@@ -142,14 +142,19 @@ function checkRegister() {
 	}
 	
 	if (checked == 4) {
-		document.getElementById("registerLogo").style.display = "inline";
-		document.getElementById("registerButtonHinweis").style.display = "none";
+		$('#registerLogo').removeClass();
+		$('#registerLogo').prop('onclick',null).off('click');
+		$( "#registerLogo" ).click(function() {
+			  alert( "Registrierung Erfolgreich. Melde dich jetzt oben Rechts an!" );
+		});
 	} else {
-		document.getElementById("registerButtonHinweis").style.display = "inline";
-		document.getElementById("registerLogo").style.display = "none";
+		$("#registerLogo").addClass( "disabled" );
+		$('#registerLogo').prop('onclick',null).off('click');
+		$( "#registerLogo" ).click(function() {
+			  showHelp();
+		});
 	}
 	
-	showHelp();
 	
 }
 

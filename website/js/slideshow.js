@@ -19,10 +19,29 @@ function initializeSlideShow() {
 		diashow[i] = true;
 	});
 	bilderAnzahl[i] = j;
-	//slideShowNextPicture();
+	slideShowNextPicture();
 	
 }
 
+
+function setDiashow() {
+	var i = 0;
+	if ($("#slideShowPlay").attr('src')=="bilder/pauseSlideshow.png") {
+		
+		diashow.forEach(function(entry) {
+			diashow[i] = false;
+			i++;
+		});
+		$("#slideShowPlay").attr('src',"bilder/playSlideshow.png");
+	} else {
+		diashow.forEach(function(entry) {
+			diashow[i] = true;
+			i++;
+		});
+		$("#slideShowPlay").attr('src',"bilder/pauseSlideshow.png");
+	}
+	
+}
 
 function cool_function(event){
     var name = event.data.param1;

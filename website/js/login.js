@@ -22,9 +22,17 @@ function checkRegex() {
 		document.getElementById("inputFormLoginPW").style.border  = "thick solid "+colorWrong;
 	}
 	if (checked == 2) {
-		document.getElementById("login_laden").style.display = "inline";
+		$('#login_laden').removeClass();
+		$('#login_laden').prop('onclick',null).off('click');
+		$( "#login_laden" ).click(function() {
+			login();
+		});
 	} else {
-		document.getElementById("login_laden").style.display = "none";
+		$("#login_laden").addClass( "disabled" );
+		$('#login_laden').prop('onclick',null).off('click');
+		$( "#login_laden" ).click(function() {
+			  
+		});
 	}
 }
 
@@ -60,6 +68,7 @@ function loginGoingOn() {
 	d.src = "bilder/navlogo2.png";
 	document.getElementById("inputFormLoginID").placeholder  = "";
 	document.getElementById("inputFormLoginPW").placeholder  = "nicht erfolgreich";
+	alert("Passwort und Benutzernamen stimmen nicht überein");
 }
 
 function openRegister() {
