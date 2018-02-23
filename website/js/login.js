@@ -2,13 +2,13 @@ var i = 0;
 var colorCorrect =  "rgba(0, 255, 0, .3)";
 var colorWrong = "rgba(255, 50, 0, .5)";
 var pattPW = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$";
+var pattMail = "[a-zA-Z0-9_]+@[a-zA-Z0-9]+\\.[a-zA-Z0-9]{2}";
 
 function checkRegex() {
 	var name = document.getElementById("inputFormLoginID").value;
 	var pw = document.getElementById("inputFormLoginPW").value;
-	var pattName = "[a-zA-Z]{5}"
 	var checked = 0;
-	if (name.match(pattName)) {
+	if (name.match(pattMail)) {
 		document.getElementById("inputFormLoginID").style.border  = "thick solid "+colorCorrect;
 		checked++;
 	} else {

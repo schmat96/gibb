@@ -1,6 +1,5 @@
 
-var pattName = "[a-zA-Z]{5}";
-var pattMail = "[a-zA-Z0-9_]+@[a-zA-Z0-9]+\\.[a-zA-Z0-9]{2}";
+var pattName = "[a-zA-Z0-9]{5}";
 
 var pwHelpText = " Bitte gib ein gültiges PW ein. (Regex: "+pattPW+")";
 var pw2HelpText = " Das Zweite Passwort stimmt noch nicht mit dem ersten überein"
@@ -14,6 +13,17 @@ function initializeRegister() {
 	document.getElementById("regEmail").style.border  = "thick solid "+ colorWrong;
 	$("#helpText").css('color', colorWrong);
 	$("#helpText").css('font-size', "0.7em");
+	
+	$(document).keypress(function(e) {
+	    if(e.which == 13) {
+	    	
+	    	if ($('#registerLogo').attr('class') == "disabled") {
+	    		showHelp();
+	    	} else {
+	    		register();
+	    	}
+	    }
+	});
 
 }
 
@@ -160,5 +170,6 @@ function checkRegister() {
 
 function register() {
 	var info = document.getElementById("Reginformation");
+	alert("Erfolgreich registriert");
 	info.innerHTML = "Ich mache noch nichts";	
 }
